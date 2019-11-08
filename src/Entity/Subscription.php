@@ -17,7 +17,7 @@ class Subscription
     private $id;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\users", inversedBy="subscriptions")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Users", inversedBy="subscriptions")
      */
     private $user;
 

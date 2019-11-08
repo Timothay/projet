@@ -59,12 +59,7 @@ class ProjetController extends AbstractController
         return $this->render('projet/connexion.html.twig');
     }
 
-    /**
-     * @Route("/inscription", name="inscription")
-     */
-    public function inscription() {
-        return $this->render('projet/inscription.html.twig');
-    }
+ 
 
     /**
      * @Route("/evenement/{id}", name="evenement")

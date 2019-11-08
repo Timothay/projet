@@ -43,13 +43,15 @@ class Users
      */
     private $password;
 
+    public $confirm_password;
+
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\role", inversedBy="users")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Role", inversedBy="users")
      */
     private $role;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Orders", mappedBy="user")
+     * @ORM\OneToMany(targetEntity="App\Entity\Orders", mappedBy="users")
      */
     private $orders;
 
@@ -64,17 +66,17 @@ class Users
     private $photos;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Subscription", mappedBy="user")
+     * @ORM\OneToMany(targetEntity="App\Entity\Subscription", mappedBy="users")
      */
     private $subscriptions;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Vote", mappedBy="user")
+     * @ORM\OneToMany(targetEntity="App\Entity\Vote", mappedBy="users")
      */
     private $votes;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Comment", mappedBy="user")
+     * @ORM\OneToMany(targetEntity="App\Entity\Comment", mappedBy="users")
      */
     private $comments;
 

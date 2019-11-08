@@ -24,7 +24,7 @@ class Contains
     private $orders;
 
     /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\products", inversedBy="contains")
+     * @ORM\ManyToMany(targetEntity="App\Entity\Products", inversedBy="contains")
      */
     private $products;
 
