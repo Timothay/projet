@@ -1,3 +1,14 @@
 framework:
     router:
         utf8: true
+
+login:
+    path: /login
+    defaults:
+        _controller: OCUserBundle:Security:Login
+
+login_check:
+    path: /login_check
+
+logout:
+    path: /
