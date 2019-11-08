@@ -53,7 +53,7 @@ class ProjetController extends AbstractController
     }
 
     /**
-     * @Route("/login", name="login")
+     * @Route("/connexion", name="connexion")
      */
     public function connexion() {
         return $this->render('projet/connexion.html.twig');
