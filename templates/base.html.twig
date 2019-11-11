@@ -2,21 +2,20 @@
 
 
 <html>
-    <head>
-  <meta charset="utf-8">
-  {% block title %}{% endblock title %}
-  <meta charset="utf-8">
+	<head>
+  		<meta charset="utf-8">
+  		{% block title %}{% endblock title %}
   <meta name="author" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://bootswatch.com/4/lux/bootstrap.min.css">
+	<link href="{{ asset('assets/style.css') }}" rel="stylesheet">
+	<link rel="stylesheet" href="{{ asset('assets/vendors/fontawesome/css/all.min.css') }}">
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
         {% block stylesheets %}
-           
-        	<link rel="stylesheet" href="https://bootswatch.com/4/lux/bootstrap.min.css">
-			<link href="{{ asset('assets/style.css') }}" rel="stylesheet">
-	        <link rel="stylesheet" href="templates/projet/assets/vendors/fontawesome/css/all.min.css">
-	        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-    {% endblock %}
+        	
+    	{% endblock %}
     </head>
     <body>
 

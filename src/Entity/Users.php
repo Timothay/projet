@@ -2,14 +2,16 @@
 
 namespace App\Entity;
 
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\Collection;
+use Doctrine\Common\Collections\ArrayCollection;
+use Symfony\Component\Validator\Constraints as Assert;
+
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\UsersRepository")
  */
-class Users
+class Users 
 {
     /**
      * @ORM\Id()
@@ -35,14 +37,20 @@ class Users
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\Email()
      */
     private $mail;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\Length(min="7",minMessage="Votre mot de passe doit faire 7 caractères ou plus")
+     * 
      */
     private $password;
 
+    /**
+     * @Assert\EqualTo(propertyPath="confirm_password", message="Les mots de passent doivent être indentiques")
+     */
     public $confirm_password;
 
     /**
@@ -352,4 +360,6 @@ class Users
 
         return $this;
     }
+
+
 }

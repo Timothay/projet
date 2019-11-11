@@ -1,0 +1,22 @@
+#formulaire {
+position: absolute;
+top: 50%;
+left: 50%;
+width:30em;
+height:18em;
+margin-top: -9em;
+margin-left: -15em; 
+background-color: whitesmoke;
+border-radius: 25px;
+border: 25px solid white;
+width: 30%;
+height: 50%;
+text-align: center;
+}
+
+#titleauth {
+text-align: center;
+vertical-align: middle;
+
+
+}

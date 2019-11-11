@@ -1,8 +1,16 @@
 {% extends 'base.html.twig' %}
 
-{% block body %}
-    <h1> Inscription </h1>
 
+{% block stylesheets %}
+    <link href="{{ asset('assets/auth.css') }}" rel="stylesheet">
+{% endblock %}
+
+{% block body %}
+    <div id="formulaire">
+    <div id="titleauth">
+    <h1> Inscription </h1>
+    <h4> Inscrivez vous avec votre adresse CESI </h4>
+    </div>
     {{ form_start(form) }}
     {{ form_row(form.nom, {'attr':{'placeholder': 'Nom'}}) }}
     {{ form_row(form.prenom, {'attr':{'placeholder': 'Prenom'}}) }}
@@ -12,4 +20,5 @@
     {{ form_row(form.confirm_password, {'label':'Confirmer le mot de passe','attr':{'placeholder': 'Confirmer le mot de passe'}}) }}
     <button type="submit" class="btn btn-success">Inscription</button>
     {{ form_end(form) }}
+        </div>
 {% endblock %}

@@ -111,6 +111,10 @@ class ComposerStaticInitb0517caa84157f05f20ea41e408a2b61
             'PhpParser\\' => 10,
             'PackageVersions\\' => 16,
         ),
+        'N' => 
+        array (
+            'Negotiation\\' => 12,
+        ),
         'M' => 
         array (
             'Monolog\\' => 8,
@@ -118,6 +122,7 @@ class ComposerStaticInitb0517caa84157f05f20ea41e408a2b61
         'F' => 
         array (
             'Fig\\Link\\' => 9,
+            'FOS\\RestBundle\\' => 15,
         ),
         'E' => 
         array (
@@ -450,6 +455,10 @@ class ComposerStaticInitb0517caa84157f05f20ea41e408a2b61
         array (
             0 => __DIR__ . '/..' . '/ocramius/package-versions/src/PackageVersions',
         ),
+        'Negotiation\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/willdurand/negotiation/src/Negotiation',
+        ),
         'Monolog\\' => 
         array (
             0 => __DIR__ . '/..' . '/monolog/monolog/src/Monolog',
@@ -457,6 +466,10 @@ class ComposerStaticInitb0517caa84157f05f20ea41e408a2b61
         'Fig\\Link\\' => 
         array (
             0 => __DIR__ . '/..' . '/fig/link-util/src',
+        ),
+        'FOS\\RestBundle\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/friendsofsymfony/rest-bundle',
         ),
         'Egulias\\EmailValidator\\' => 
         array (
@@ -544,6 +557,13 @@ class ComposerStaticInitb0517caa84157f05f20ea41e408a2b61
             'ProxyManager\\' => 
             array (
                 0 => __DIR__ . '/..' . '/ocramius/proxy-manager/src',
+            ),
+        ),
+        'J' => 
+        array (
+            'JsonpCallbackValidator' => 
+            array (
+                0 => __DIR__ . '/..' . '/willdurand/jsonp-callback-validator/src',
             ),
         ),
     );
