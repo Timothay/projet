@@ -18,7 +18,7 @@
         	
     	{% endblock %}
     </head>
-    <body>
+
 
   
 	<header>
@@ -35,7 +35,7 @@
 			src="./assets/images/logo_BDE.png">
 		</div>
 	</header>
-
+    <body>
 		<div id="sidebar" class="w3-sidebar w3-collapse  w3-animate-left">
 				<img class="logo"
 				src="./assets/images/logo-cesi-ecole-ingenieurs.jpg">
@@ -56,12 +56,12 @@
 
 		</div>
 
- 
+ 	</body>
 
 
         {% block body %}{% endblock %}
 		
-	<footer>
+	<!--<footer>
 		<div id="contact">
 			<a href="/contact"><button type="button" class="btn btn-primary" id="" aria-pressed="false">Nous Contacter</button></a>
 		</div>
@@ -77,15 +77,15 @@
 			</div>
 		</div>
 
-	</footer>
-        {% block javascripts %}
+	</footer>-->
+        
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
  		 <script
   			src="https://code.jquery.com/jquery-3.4.1.min.js"
   			integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
   			crossorigin="anonymous"></script>
  		<script src="./assets/vendors/script.js"></script>
-  {% endblock %}
-    </body>
+  {% block javascripts %}{% endblock %}
+    
 </html>
 
