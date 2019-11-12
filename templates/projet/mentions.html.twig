@@ -1,1 +1,64 @@
 {% extends 'base.html.twig' %}
+
+
+{% block stylesheets %}
+
+<link href="{{ asset('assets/mentions.css') }}" rel="stylesheet">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+{% endblock %}
+
+
+{% block body %}
+
+<div id = "container-fluid">
+<ol>
+<li>Présentation du site.</li>
+<p>
+
+<br />
+En vertu de l'article 6 de la loi n° 2004-575 du 21 juin 2004 pour la confiance
+ dans l'économie numérique, il est précisé aux utilisateurs du site nomdusiteici 
+ l'identité des différents intervenants dans le cadre de sa réalisation et de son 
+ suivi :<br /><br/><strong>Propriétaire</strong> : BDE Exia Lille<br /><br />
+ <strong>Responsable publication</strong>: BDE Exia Lille<br />Le responsable 
+ publication est une personne physique ou une personne morale.
+
+<p/>
+
+<li>Conditions générales d’utilisation du site et des services proposés.</li>
+<p>
+
+<br />
+L’utilisation du site nomdusiteici implique l’acceptation pleine et entière des 
+conditions générales d’utilisation ci-après décrites. Ces conditions d’utilisation 
+sont susceptibles d’être modifiées ou complétées à tout moment, les utilisateurs du 
+site nomdusiteici sont donc invités à les consulter de manière régulière.
+<br />
+Ce site est normalement accessible à tout moment aux utilisateurs. Une interruption 
+pour raison de maintenance technique peut être toutefois décidée par BDE CESI Lille, 
+qui s’efforcera alors de communiquer préalablement aux utilisateurs les dates et heures 
+de l’intervention.
+<br />
+Le site nomdusiteici est mis à jour régulièrement par BDE. De la même façon, 
+les mentions légales peuvent être modifiées à tout moment : elles s’imposent 
+néanmoins à l’utilisateur qui est invité à s’y référer le plus souvent possible 
+afin d’en prendre connaissance.
+
+</p>
+<li>Description des services fournis.</li>
+<li>Limitations contractuelles sur les données techniques.</li>
+<li>Propriété intellectuelle et contrefaçons.</li>
+<li>Limitations de responsabilité.</li>
+<li>Gestion des données personnelles.</li>
+<li>Liens hypertextes et cookies.</li>
+<li>Droit applicable et attribution de juridiction.</li>
+<li>Les principales lois concernées.</li>
+<li>Lexique.</li>
+</ol>
+</div>
+
+{% endblock %}
+
+{% block javascripts %}
+
+{% endblock %}
