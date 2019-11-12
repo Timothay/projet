@@ -27,7 +27,8 @@
         "symfony/validator": "4.3.*",
         "symfony/web-link": "4.3.*",
         "symfony/yaml": "4.3.*",
-        "twig/cssinliner-extra": "^2.12"
+        "twig/cssinliner-extra": "^2.12",
+        "twig/extensions": "^1.5"
     },
     "require-dev": {
         "symfony/debug-pack": "*",

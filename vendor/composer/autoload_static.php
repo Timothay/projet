@@ -34,6 +34,7 @@ class ComposerStaticInitb0517caa84157f05f20ea41e408a2b61
         'T' => 
         array (
             'Twig\\Extra\\CssInliner\\' => 22,
+            'Twig\\Extensions\\' => 16,
             'Twig\\' => 5,
             'TijsVerkoyen\\CssToInlineStyles\\' => 31,
         ),
@@ -174,6 +175,10 @@ class ComposerStaticInitb0517caa84157f05f20ea41e408a2b61
         'Twig\\Extra\\CssInliner\\' => 
         array (
             0 => __DIR__ . '/..' . '/twig/cssinliner-extra/src',
+        ),
+        'Twig\\Extensions\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/twig/extensions/src',
         ),
         'Twig\\' => 
         array (
@@ -547,6 +552,10 @@ class ComposerStaticInitb0517caa84157f05f20ea41e408a2b61
     public static $prefixesPsr0 = array (
         'T' => 
         array (
+            'Twig_Extensions_' => 
+            array (
+                0 => __DIR__ . '/..' . '/twig/extensions/lib',
+            ),
             'Twig_' => 
             array (
                 0 => __DIR__ . '/..' . '/twig/twig/lib',

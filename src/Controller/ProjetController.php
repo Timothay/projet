@@ -72,7 +72,7 @@ class ProjetController extends AbstractController
      * @Route("/panier", name="panier")
      */
     public function panier() {
-        return $this->render('projet/panier.html.twig');
+        return $this->render('projet/panier.php');
     }
 
     /**

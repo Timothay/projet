@@ -1,7 +1,6 @@
-{% extends 'base.html.twig' %}
 <?php
 session_start();
-include_once("fonctions-panier.php");
+include_once("foncpanier.php");
 
 $erreur = false;
 
@@ -12,22 +11,22 @@ if($action !== null)
    $erreur=true;
 
    //récuperation des variables en POST ou GET
-   $l = (isset($_POST['l'])? $_POST['l']:  (isset($_GET['l'])? $_GET['l']:null )) ;
+   $n = (isset($_POST['n'])? $_POST['n']:  (isset($_GET['n'])? $_GET['n']:null )) ;
    $p = (isset($_POST['p'])? $_POST['p']:  (isset($_GET['p'])? $_GET['p']:null )) ;
    $q = (isset($_POST['q'])? $_POST['q']:  (isset($_GET['q'])? $_GET['q']:null )) ;
 
    //Suppression des espaces verticaux
-   $l = preg_replace('#\v#', '',$l);
+   $n = preg_replace('#\v#', '',$n);
    //On verifie que $p soit un float
    $p = floatval($p);
 
    //On traite $q qui peut etre un entier simple ou un tableau d'entier
     
    if (is_array($q)){
-      $QteArticle = array();
+      $qteArticle = array();
       $i=0;
       foreach ($q as $contenu){
-         $QteArticle[$i++] = intval($contenu);
+         $qteArticle[$i++] = intval($contenu);
       }
    }
    else
@@ -38,17 +37,17 @@ if($action !== null)
 if (!$erreur){
    switch($action){
       Case "ajout":
-         ajouterArticle($l,$q,$p);
+         ajouterArticle($n,$q,$p);
          break;
 
       Case "suppression":
-         supprimerArticle($l);
+         suppArticle($n);
          break;
 
       Case "refresh" :
          for ($i = 0 ; $i < count($QteArticle) ; $i++)
          {
-            modifierQTeArticle($_SESSION['panier']['libelleProduit'][$i],round($QteArticle[$i]));
+            modifierQTeArticle($_SESSION['panier']['nomProduit'][$i],round($qteArticle[$i]));
          }
          break;
 
@@ -58,6 +57,7 @@ if (!$erreur){
 }
 
 echo '<?xml version="1.0" encoding="utf-8"?>';?>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr">
 <head>
@@ -71,7 +71,7 @@ echo '<?xml version="1.0" encoding="utf-8"?>';?>
 		<td colspan="4">Votre panier</td>
 	</tr>
 	<tr>
-		<td>Libellé</td>
+		<td>Nom</td>
 		<td>Quantité</td>
 		<td>Prix Unitaire</td>
 		<td>Action</td>
@@ -81,7 +81,7 @@ echo '<?xml version="1.0" encoding="utf-8"?>';?>
 	<?php
 	if (creationPanier())
 	{
-	   $nbArticles=count($_SESSION['panier']['libelleProduit']);
+	   $nbArticles=count($_SESSION['panier']['nomProduit']);
 	   if ($nbArticles <= 0)
 	   echo "<tr><td>Votre panier est vide </ td></tr>";
 	   else
@@ -89,16 +89,16 @@ echo '<?xml version="1.0" encoding="utf-8"?>';?>
 	      for ($i=0 ;$i < $nbArticles ; $i++)
 	      {
 	         echo "<tr>";
-	         echo "<td>".htmlspecialchars($_SESSION['panier']['libelleProduit'][$i])."</ td>";
+	         echo "<td>".htmlspecialchars($_SESSION['panier']['nomProduit'][$i])."</ td>";
 	         echo "<td><input type=\"text\" size=\"4\" name=\"q[]\" value=\"".htmlspecialchars($_SESSION['panier']['qteProduit'][$i])."\"/></td>";
 	         echo "<td>".htmlspecialchars($_SESSION['panier']['prixProduit'][$i])."</td>";
-	         echo "<td><a href=\"".htmlspecialchars("panier.php?action=suppression&l=".rawurlencode($_SESSION['panier']['libelleProduit'][$i]))."\">XX</a></td>";
+	         echo "<td><a href=\"".htmlspecialchars("panier.php?action=suppression&l=".rawurlencode($_SESSION['panier']['nomProduit'][$i]))."\">XX</a></td>";
 	         echo "</tr>";
 	      }
 
 	      echo "<tr><td colspan=\"2\"> </td>";
 	      echo "<td colspan=\"2\">";
-	      echo "Total : ".MontantGlobal();
+	      echo "Total : ".montantPanier();
 	      echo "</td></tr>";
 
 	      echo "<tr><td colspan=\"4\">";
