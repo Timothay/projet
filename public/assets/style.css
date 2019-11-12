@@ -1,14 +1,18 @@
 #header_up{
 	position: fixed;
 	text-align: right;
-	background-color:#000000;
+	background-color:#3677EA;
 	color:white;
 	padding:6px;
 	width: 100%;
 	margin-top: -50px;
 }
 
+#header_up button{
+	border-color: black;
+	background-color: #3644EA;
 
+}
 #header_down{
 	background-image:url("https://picsum.photos/1903/200");
 	background-color:black;
@@ -39,6 +43,12 @@ footer{
 	text-align:center;
 }
 
+#footerbutton button{
+	border-color: black;
+	background-color: #3644EA;
+	
+
+}
 
 body{
     margin: 0px;
@@ -84,6 +94,9 @@ html{
 #slid-bar-btn {
 	width:100%;
 	height:auto;
+	border-color: black;
+	background-color: #3644EA;
+
 	
 	
 }
