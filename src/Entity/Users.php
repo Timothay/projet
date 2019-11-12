@@ -49,7 +49,7 @@ class Users
     private $password;
 
     /**
-     * @Assert\EqualTo(propertyPath="confirm_password", message="Les mots de passent doivent être indentiques")
+     * @Assert\EqualTo(propertyPath="password", message="Les mots de passent doivent être indentiques")
      */
     public $confirm_password;
 
