@@ -12,6 +12,17 @@ border: 25px solid white;
 width: 30%;
 height: 50%;
 text-align: center;
+
+}
+
+.button {
+background-color: #3644EA;
+border-color: black;
+border-width: 0.01em;
+font: Helvetica;
+color: white;
+margin-top: 1em;
+font-style: bold;
 }
 
 #titleauth {
