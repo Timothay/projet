@@ -33,13 +33,13 @@ class Users
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $centre;
+    private $center;
 
     /**
      * @ORM\Column(type="string", length=255)
      * @Assert\Email()
      */
-    private $mail;
+    private $email;
 
     /**
      * @ORM\Column(type="string", length=255)
@@ -127,26 +127,26 @@ class Users
         return $this;
     }
 
-    public function getCentre(): ?string
+    public function getCenter(): ?string
     {
-        return $this->centre;
+        return $this->center;
     }
 
-    public function setCentre(string $centre): self
+    public function setCenter(string $center): self
     {
-        $this->centre = $centre;
+        $this->center = $center;
 
         return $this;
     }
 
-    public function getMail(): ?string
+    public function getEmail(): ?string
     {
-        return $this->mail;
+        return $this->email;
     }
 
-    public function setMail(string $mail): self
+    public function setEmail(string $email): self
     {
-        $this->mail = $mail;
+        $this->email = $email;
 
         return $this;
     }
