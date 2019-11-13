@@ -22,12 +22,12 @@ class Comment
     private $comment;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\users", inversedBy="comments")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Users", inversedBy="comments")
      */
     private $user;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\photo", inversedBy="comments")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Photo", inversedBy="comments")
      */
     private $photo;
 
