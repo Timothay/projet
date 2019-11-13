@@ -26,6 +26,7 @@ html{
 	background-color: #3644EA;
 
 }
+
 #header_down{
 	background-image:url("https://picsum.photos/1903/200");
 	background-color:black;
@@ -37,10 +38,6 @@ html{
     height:200px;
 	font-size:3em;
 	margin-top: 70px;
-}
-
-.contain-all {
-	margin: 20px;
 }
 
 .wrapper {
