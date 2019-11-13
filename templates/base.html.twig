@@ -19,73 +19,145 @@
     	{% endblock %}
     </head>
 
-
-  
-	<header>
-		<div id="header_up">
-
-			<a href="/connexion"><button type="button" class="btn btn-primary">Connexion</button></a>
-			
-			<a href="/inscription"><button type="button" class="btn btn-primary">Inscription</button></a>	
-		</div>
-
-		<div id="header_down">
-			<p>BDE CESI</p>
-			<img  class="logo_BDE"
-			src="./assets/images/logo_BDE.png">
-		</div>
-	</header>
     <body>
-		<div id="sidebar" class="w3-sidebar w3-collapse  w3-animate-left">
-				<img class="logo"
-				src="./assets/images/logo-cesi-ecole-ingenieurs.jpg">
-			<br>
-			<br>
-				<a href="/"><button id="slid-bar-btn" type="button" class="btn btn-primary" aria-pressed="false">Accueil</button></a>
-				<a href="/calendrier"><button id="slid-bar-btn" type="button" class="btn btn-primary" aria-pressed="false">Agenda des événements</button></a>
-				<a href="/boutique"><button id="slid-bar-btn" type="button" class="btn btn-primary">Boutique</button></a>
-				<a href="/contact"><button id="slid-bar-btn" type="button" class="btn btn-primary" aria-pressed="false">Nous Contacter</button></a>
-		</div>
 
-		<div class="container">
-	
+		<header>
+			<div id="header_up">
 
-			<div class="empty">
-
+				<a href="/connexion"><button type="button" class="btn btn-primary">Connexion</button></a>
+				
+				<a href="/inscription"><button type="button" class="btn btn-primary">Inscription</button></a>	
 			</div>
 
-		</div>
+			<div id="header_down">
+				<p>BDE CESI</p>
+				<img  class="logo_BDE"
+				src="./assets/images/logo_BDE.png">
+			</div>
+		</header>
 
+			<!--<div id="sidebar" class="w3-sidebar w3-collapse  w3-animate-left">
+					<img class="logo"
+					src="./assets/images/logo-cesi-ecole-ingenieurs.jpg">
+				<br>
+				<br>
+					<a href="/"><button id="slid-bar-btn" type="button" class="btn btn-primary" aria-pressed="false">Accueil</button></a>
+					<a href="/calendrier"><button id="slid-bar-btn" type="button" class="btn btn-primary" aria-pressed="false">Agenda des événements</button></a>
+					<a href="/boutique"><button id="slid-bar-btn" type="button" class="btn btn-primary">Boutique</button></a>
+					<a href="/contact"><button id="slid-bar-btn" type="button" class="btn btn-primary" aria-pressed="false">Nous Contacter</button></a>
+			</div>-->
+
+			<div class="wrapper">
+    			<!-- Sidebar -->
+				<nav id="sidebar">
+					<div class="sidebar-header">
+						<img class="logo" src="./assets/images/logo-cesi-ecole-ingenieurs.jpg">
+					</div>
+
+					<ul class="list-unstyled components">
+						<p>Dummy Heading</p>
+						<li class="active">
+							<a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Home</a>
+							<ul class="collapse list-unstyled" id="homeSubmenu">
+								<li>
+									<a href="#">Home 1</a>
+								</li>
+								<li>
+									<a href="#">Home 2</a>
+								</li>
+								<li>
+									<a href="#">Home 3</a>
+								</li>
+							</ul>
+						</li>
+						<li>
+							<a href="#">About</a>
+						</li>
+						<li>
+							<a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Pages</a>
+							<ul class="collapse list-unstyled" id="pageSubmenu">
+								<li>
+									<a href="#">Page 1</a>
+								</li>
+								<li>
+									<a href="#">Page 2</a>
+								</li>
+								<li>
+									<a href="#">Page 3</a>
+								</li>
+							</ul>
+						</li>
+						<li>
+							<a href="#">Portfolio</a>
+						</li>
+						<li>
+							<a href="#">Contact</a>
+						</li>
+					</ul>
+				</nav>
+
+				<div id="content">
+						<!-- We'll fill this with dummy content -->
+					<!--<nav class="navbar navbar-expand-lg navbar-light bg-light">
+						<div class="container-fluid">
+
+							<button type="button" id="sidebarCollapse" class="btn btn-info">
+								<i class="fas fa-align-left"></i>
+								<span>Toggle Sidebar</span>
+							</button>
+						</div>
+					</nav>-->
+					
+					
+					
+				
+
+
+				</div>
+			</div>
+
+			
+		<!--<footer>
+			<div id="contact">
+				<a href="/contact"><button type="button" class="btn btn-primary" id="" aria-pressed="false">Nous Contacter</button></a>
+			</div>
+			<div id="mentions">
+				<a href="/mentions"><button type="button" class="btn btn-primary" id="" aria-pressed="false">Mention Légales</button></a>
+			</div>
+			<div id="reseaux">
+				<div id="facebook">
+					<a href="https://www.facebook.com/BDE-CESI-Lille-2190916054532603/"><button type="button" class="btn btn-primary" aria-pressed="false"><i class="fab fa-facebook-square"></i> Facebook</button></a>
+				</div>
+				<div id="twitter">
+					<a href="https://www.twitter.com/"><button type="button" class="btn btn-primary" aria-pressed="false"><i class="fab fa-twitter-square"></i> Twitter</button></a>
+				</div>
+			</div>
+
+		</footer>-->
+        
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+ 		<script
+  			src="https://code.jquery.com/jquery-3.4.1.min.js"
+  			integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  			crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+ 		<script src="./assets/vendors/script.js"></script>
  	</body>
 
 
         {% block body %}{% endblock %}
 		
-	<!--<footer>
-		<div id="contact">
-			<a href="/contact"><button type="button" class="btn btn-primary" id="" aria-pressed="false">Nous Contacter</button></a>
-		</div>
-		<div id="mentions">
-			<a href="/mentions"><button type="button" class="btn btn-primary" id="" aria-pressed="false">Mention Légales</button></a>
-		</div>
-		<div id="reseaux">
-			<div id="facebook">
-				<a href="https://www.facebook.com/BDE-CESI-Lille-2190916054532603/"><button type="button" class="btn btn-primary" aria-pressed="false"><i class="fab fa-facebook-square"></i> Facebook</button></a>
-			</div>
-			<div id="twitter">
-				<a href="https://www.twitter.com/"><button type="button" class="btn btn-primary" aria-pressed="false"><i class="fab fa-twitter-square"></i> Twitter</button></a>
-			</div>
-		</div>
 
-	</footer>-->
-        
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
- 		 <script
-  			src="https://code.jquery.com/jquery-3.4.1.min.js"
-  			integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
-  			crossorigin="anonymous"></script>
- 		<script src="./assets/vendors/script.js"></script>
   {% block javascripts %}{% endblock %}
+
+		<script>
+			$('#sidebarCollapse').on('click', function () {
+        	$('#sidebar').toggleClass('active');
+    		});
+		</script>
     
+	</body>
+
 </html>
 

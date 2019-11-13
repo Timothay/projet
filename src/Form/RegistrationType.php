@@ -12,17 +12,16 @@ use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
+use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
 
 class RegistrationType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            
             ->add('email', EmailType::class, array('label' => 'Email', 'required' => true, 'attr' => array('class' =>'form-group', 'placeholder' =>'Entrez votre adresse mail')))
-            ->add('center', ChoiceType::class, array('label' => 'Centre', 'required' => true, 'choices' => ['Lille' => 'Lille', 'Arras' => 'Arras', 'Rouen' => 'Rouen', 'Triangle des Bermudes' => 'Triangle des Bermudes', 'Diagonale du vide' => 'Diagonale du vide', 'Kremlin' => 'Kremlin', 'Parlement du premier Saint-Empire romain de la nation Teutonique' => 'Parlement du premier Saint-Empire romain de la nation Teutonique'], 'attr' => array('class' =>'form-group', 'placeholder' =>'Sélectionnez le centre')))
-            ->add('password', PasswordType::class, array('label' => 'Mot de passe', 'required' => true, 'attr' => array('class' =>'form-group', 'placeholder' =>'Entrez votre mot de passe')))
-            ->add('confirm_password', PasswordType::class, array('label' =>'Confirmation', 'required' => true, 'attr' => array('class' => 'form-group', 'placeholder' => 'Confirmer le mot de passe')))
+            ->add('center', ChoiceType::class, array('label' => 'Centre', 'required' => true, 'choices' => ['Lille' => 'Lille', 'Arras' => 'Arras', 'Rouen' => 'Rouen', 'Triangle des Bermudes' => 'Triangle des Bermudes', 'Diagonale du vide' => 'Diagonale du vide', 'Kremlin' => 'Kremlin'], 'attr' => array('class' =>'form-group', 'placeholder' =>'Sélectionnez le centre')))
+            ->add('password', RepeatedType::class, ['type' => PasswordType::class, 'invalid_message' => 'les mots de passe sont différents.', 'options' => ['attr' => ['password-field']], 'required' => true, 'first_options' => ['label' => 'Mot de passe'], 'second_options' => ['label' => 'Confirmer le mot de passe']])
             ->add('submit', SubmitType::class, array('label' =>'INSCRIPTION', 'attr' =>array('class' => 'button')))
         ;
     }

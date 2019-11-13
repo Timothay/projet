@@ -2,6 +2,7 @@
 namespace App\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
+use App\Entity\Products;
 
 use App\Form\ContactType;
 
@@ -39,7 +40,12 @@ class ProjetController extends AbstractController
      * @Route("/boutique", name="boutique")
      */
     public function boutique(){
-        return $this->render('projet/boutique.html.twig');
+        $repo=$this->getDoctrine()->getRepository(Products::class);
+        $products = $repo->findAll();
+        return $this->render('projet/boutique.html.twig',[
+            'controller_name'=> 'ProjetController',
+            'products'=>$products
+        ]);
     }
     /**
      * @Route("/moncompte", name="moncompte")

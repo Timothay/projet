@@ -39,36 +39,37 @@ class SecurityController extends AbstractController
             if($form->isSubmitted()) {
                 $users= new Users;
                 $data = $form->getData();
-               /* $data['role_id'] = 1;
-                $nmdp = $data['password'];
-                */
-                $json_data = json_encode($data);
 
-            $curl = curl_init();
+           if (preg_match("/^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9]).{8;,}$/", $data->getPassword())){
+                $curl = curl_init("10.97.184.127:8080/register-new-user");
 
-            curl_setopt($curl, CURLOPT_URL, '10.97.184.127:27015/register-new-user');
+            $postfields = [
+                'center' => $data->getCenter(),
+                'email' => $data->getEmail(),
+                'password' => $data->getPassword(),
+            ];
+            curl_setopt($curl, CURLOPT_HTTPHEADER, array("Content-Type: application/x-www-form-urlencoded"));
             curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
-            curl_setopt($curl, CURLOPT_COOKIESESSION, true);
-            curl_setopt($curl, CURLOPT_POST, true);
+            curl_setopt($curl, CURLOPT_POSTFIELDS, http_build_query($postfields));
 
-            $postfields = array(
-                'center' => $center,
-                'email' => $email,
-                'password' => $password,
-            );
-    
-
-            curl_setopt($curl, CURLOPT_POSTFIELDS, $postfields);
-
-            
             $return = curl_exec($curl);
             curl_close($curl);
 
-
+        }
         }
         
 
+    }else{
+        echo "error";
     }
             return $this->redirectToRoute("accueil");
         }
+        public function connection(Request $request){
+
+
+
+
+        }
+
+
 }
