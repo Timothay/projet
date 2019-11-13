@@ -32,7 +32,10 @@ class SecurityController extends AbstractController
             if($form->isSubmitted()) {
                 $users= new Users;
                 $data = $form->getData();
-                
+               
+
+                if (preg_match('/[0-9]/', $data->getPassword()) && preg_match('/[A-Z]/', $data->getPassword()) && preg_match('/[a-z]/', $data->getPassword()))
+                {
                     $curl = curl_init("10.97.184.127:8080/register-new-user");
 
                     $postfields = [
@@ -47,8 +50,11 @@ class SecurityController extends AbstractController
                     $return = curl_exec($curl);
                     curl_close($curl);
                 }
+                else{
+                return $this->redirectToRoute("echec");    
+                }
             }
-        
+        }
         return $this->redirectToRoute("connexion");
     }
 

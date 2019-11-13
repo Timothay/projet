@@ -19,6 +19,15 @@ class ProjetController extends AbstractController
             'controller_name' => 'ProjetController',
         ]);
     }
+
+        /**
+     * @Route("/echec", name="echec")
+     */
+    public function echec()
+    {
+        return $this->render('projet/echec.html.twig', [
+        ]);
+    }
     /**
      * @Route("/calendrier", name="calendrier")
      */
