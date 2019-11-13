@@ -29,7 +29,7 @@ class Orders
     private $ordered_products;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\users", inversedBy="orders")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Users", inversedBy="orders")
      */
     private $user;
 

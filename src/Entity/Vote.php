@@ -17,12 +17,12 @@ class Vote
     private $id;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\activity", inversedBy="votes")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Activity", inversedBy="votes")
      */
     private $activity;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\users", inversedBy="votes")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Users", inversedBy="votes")
      */
     private $user;
 

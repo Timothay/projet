@@ -29,7 +29,7 @@ class Activity
     private $already_existing;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\users", inversedBy="activities")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Users", inversedBy="activities")
      */
     private $users;
 
