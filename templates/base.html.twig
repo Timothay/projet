@@ -47,47 +47,37 @@
 					<a href="/contact"><button id="slid-bar-btn" type="button" class="btn btn-primary" aria-pressed="false">Nous Contacter</button></a>
 			</div>-->
 
-			<div class="wrapper">
-    			<!-- Sidebar -->
-				<nav id="sidebar">
-					<div class="sidebar-header">
-						<img class="logo" src="./assets/images/logo-cesi-ecole-ingenieurs.jpg">
-					</div>
-
-					<ul class="list-unstyled components">
-						<!--<p>Dummy Heading</p>-->
-						<li class="active">
-							<a href="/"><button data-toggle="collapse" id="slid-bar-btn" type="button" class="btn btn-primary" aria-expanded="false" class="dropdown-toggle">Accueil</button></a>
-						</li>
-						<li>
-							<a href="/calendrier"><button data-toggle="collapse" id="slid-bar-btn" type="button" class="btn btn-primary" aria-expanded="false" class="dropdown-toggle">Agenda des événements</button></a>
-						</li>
-						<li>
-							<a href="/boutique"><button data-toggle="collapse" id="slid-bar-btn" type="button" class="btn btn-primary" aria-pressed="false" class="dropdown-toggle">Boutique</button></a>
-						</li>
-						<li>
-							<a href="/contact"><button data-toggle="collapse" id="slid-bar-btn" type="button" class="btn btn-primary" aria-expanded="false" class="dropdown-toggle">Nous contacter</button></a>
-						</li>
+			<nav class="navbar navbar-expand-lg navbar-light bg-light">
+				<a class="navbar-brand" href="#">
+					<img class="logo" src="assets/images/logo-cesi.jpg" max-width="100%" height="40" alt="">
+				</a>
+				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+						</button>
+				<div class="collapse navbar-collapse" id="navbarNav">
+					<ul class="navbar-nav">
+					<li class="nav-item active">
+						<a class="nav-link" href="/">Acceuil <span class="sr-only">(current)</span></a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="/boutique">Boutique</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="/contact">Nous Contacter</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+					</li>
 					</ul>
-				</nav>
-
-				<div id="content">
-						<!-- We'll fill this with dummy content -->
-					<!--<nav class="navbar navbar-expand-lg navbar-light bg-light">
-						<div class="container-fluid">
-
-							<button type="button" id="sidebarCollapse" class="btn btn-info">
-								<i class="fas fa-align-left"></i>
-								<span>Toggle Sidebar</span>
-							</button>
-						</div>
-					</nav>-->
+				</div>
+			</nav>
 					
 					{% block body %}{% endblock %}
 				
 
 
 				</div>
+				<div class="overlay"></div>
 			</div>
 
 			
@@ -117,16 +107,30 @@
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
 		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
  		<script src="./assets/vendors/script.js"></script>
- 	</body>
-		
-
-  {% block javascripts %}{% endblock %}
 
 		<script>
+			$("#sidebar").mCustomScrollbar({
+            theme: "minimal"
+			});
+
+			$('#dismiss, .overlay').on('click', function () {
+				// hide sidebar
+				$('#sidebar').removeClass('active');
+				// hide overlay
+				$('.overlay').removeClass('active');
+			});
+
 			$('#sidebarCollapse').on('click', function () {
-        	$('#sidebar').toggleClass('active');
-    		});
+				// open sidebar
+				$('#sidebar').addClass('active');
+				// fade in the overlay
+				$('.overlay').addClass('active');
+				$('.collapse.in').toggleClass('in');
+				$('a[aria-expanded=true]').attr('aria-expanded', 'false');
+			});
 		</script>
+
+		{% block javascripts %}{% endblock %}
     
 	</body>
 
