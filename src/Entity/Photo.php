@@ -29,12 +29,12 @@ class Photo
     private $path;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\activity", inversedBy="photos")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Activity", inversedBy="photos")
      */
     private $activity;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\users", inversedBy="photos")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Users", inversedBy="photos")
      */
     private $users;
 

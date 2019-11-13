@@ -19,7 +19,7 @@ class Contains
     private $id;
 
     /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\orders", inversedBy="contains")
+     * @ORM\ManyToMany(targetEntity="App\Entity\Orders", inversedBy="contains")
      */
     private $orders;
 

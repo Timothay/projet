@@ -1,1 +1,11 @@
 {% extends 'base.html.twig' %}
+
+{% form_theme formContact 'bootstrap_4_layout.html.twig' %}
+
+{% block body %}
+
+<h1>test<h1>
+
+{{form(formContact)}}
+
+{% endblock %}
