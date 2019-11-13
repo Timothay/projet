@@ -28,10 +28,8 @@ class ProjetController extends AbstractController
     /**
      * @Route("/contact", name="contact")
      */
-    public function contact(){
-        $contact = null;
+    public function contact(Request $request){
         $form = $this->createForm(ContactType::class);
-            
             return $this->render('projet/contact.html.twig', [
                 'formContact' => $form->createView()
                 ]);
