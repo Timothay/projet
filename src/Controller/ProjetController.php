@@ -2,6 +2,9 @@
 namespace App\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
+
+use App\Form\ContactType;
+
 class ProjetController extends AbstractController
 {
     /**
@@ -23,7 +26,12 @@ class ProjetController extends AbstractController
      * @Route("/contact", name="contact")
      */
     public function contact(){
-        return $this->render('projet/contact.html.twig');
+        $contact = null;
+        $form = $this->createForm(ContactType::class);
+
+        return $this->render('projet/contact.html.twig', [
+            'formContact' => $form->createView()
+        ]);
     }
     /**
      * @Route("/boutique", name="boutique")
