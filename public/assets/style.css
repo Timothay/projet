@@ -39,6 +39,10 @@ html{
 	margin-top: 70px;
 }
 
+.contain-all {
+	margin: 20px;
+}
+
 .wrapper {
 	display: flex;
 	width: 100%;
