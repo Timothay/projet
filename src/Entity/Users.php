@@ -44,7 +44,7 @@ class Users
     /**
      * @ORM\Column(type="string", length=255)
      * @Assert\Length(min="8",minMessage="Votre mot de passe doit faire 8 caractères ou plus")
-     * @Assert\Regex(pattern="/^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9]).{8;,}$/", match="false", message="Votre mot de passe doit avoir au moins une majuscule, une minuscule et un chiffre")
+     * 
      */
     private $password;
 

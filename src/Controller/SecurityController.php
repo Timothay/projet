@@ -33,7 +33,6 @@ class SecurityController extends AbstractController
                 $users= new Users;
                 $data = $form->getData();
                 
-               if (preg_match("/^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9]).{8;,}$/", $data->getPassword())) {
                     $curl = curl_init("10.97.184.127:8080/register-new-user");
 
                     $postfields = [
@@ -49,7 +48,7 @@ class SecurityController extends AbstractController
                     curl_close($curl);
                 }
             }
-        }
+        
         return $this->redirectToRoute("connexion");
     }
 
