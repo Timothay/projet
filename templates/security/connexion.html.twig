@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+
+{% block stylesheets %}
+    <link href="{{ asset('assets/auth.css') }}" rel="stylesheet">
+{% endblock %}
+
+{% block body %}
+<div id="formulaire">
+<div id="titleauth">
+    <h1> Connexion </h1>
+    <h4> Connectez vous avec votre adresse CESI </h4>
+</div>
+{{form(form)}}
+</div>
+{% endblock %}
+   

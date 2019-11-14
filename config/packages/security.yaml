@@ -1,26 +1,37 @@
-# app/config/security.yml
 
 
+# config/packages/security.yaml
 security:
-    encoders:
-       App\Entity\User:
-        algorithm: auto
     providers:
         in_memory: { memory: ~ }
-        in_database:
-            entity:
-                class: src\Entity\Users
-                property: mail
-
-    provider:     in_memory
     firewalls:
+        dev:
+            pattern: ^/(_(profiler|wdt)|css|images|js)/
+            security: false
         main:
-            pattern: ^/
-            anonymous: true
-            provider: in_database
-            form_login:
-                login_path: connexion
-                check_path: connexion
-            logout:
-                path: logout
-                target: login
+            anonymous: ~
+##security:
+#    encoders:
+#       App\Entity\User:
+#        algorithm: auto
+#
+#    providers:
+#        in_memory: { memory: ~ }
+#        in_database:
+#            entity:
+ #               class: src\Entity\Users
+ #               property: mail
+#
+
+#    provider:     in_memory
+ #   firewalls:
+#        main:
+ #           pattern: ^/
+ #           anonymous: true
+#            provider: in_database
+ #           form_login:
+ #               login_path: connexion
+ #               check_path: connexion
+ #           logout:
+ #               path: logout
+ #               target: login
