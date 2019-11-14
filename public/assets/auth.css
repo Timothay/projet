@@ -30,9 +30,3 @@ font-style: bold;
 text-align: center;
 vertical-align: middle;
 }
-
-@media screen and (max-width: 800px) {
-	#formulaire {
-        
-    }
-}
