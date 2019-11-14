@@ -68,6 +68,10 @@ html{
 	margin-bottom: 3px;
 }
 
+.nav-link {
+	font-size: 80%;
+}
+
 #content {
 	margin: 3%;
 }
