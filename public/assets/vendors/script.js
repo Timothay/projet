@@ -1,53 +1,10 @@
+/* Indication de l'actuelle page dans la barre de navigation */
 $(function() {
     $('nav a[href^="/' + location.pathname.split("/")[1] + '"]').addClass('active');
 });
 
 
-/*function setCookie(cname, cvalue, exdays) {
-  var d = new Date();
-  d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
-  var expires = "expires="+d.toUTCString();
-  document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
-}
-
-
-function getCookie(cname) {
-  var name = cname + "=";
-  var ca = document.cookie.split(';');
-  for(var i = 0; i < ca.length; i++) {
-    var c = ca[i];
-    while (c.charAt(0) == ' ') {
-      c = c.substring(1);
-    }
-    if (c.indexOf(name) == 0) {
-      return c.substring(name.length, c.length);
-    }
-  }
-  return "";
-}
-
-
-function checkCookie() {
-  var user = getCookie("username");
-  if (user != "") {
-    alert("Welcome again " + user);
-  } else {
-    user = prompt("Please enter your name:", "");
-    if (user != "" && user != null) {
-      setCookie("username", user, 365);
-    }
-  }
-};*/
-
-/*$(document).ready(function(){   
-  setTimeout(function () {
-      $("#cookieConsent").fadeIn(200);
-   }, 0);
-  $("#closeCookieConsent, .cookieConsentOK").click(function() {
-      $("#cookieConsent").fadeOut(200);
-  }); 
-});*/ 
-
+/* Génération d'une fenêtre de pop-up avec comportement */
 $(document).ready(function() {
   
   //check to see if the submited cookie is set, if not check if the popup has been closed, if not then display the popup
