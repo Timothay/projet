@@ -14,7 +14,9 @@ class EvenementFixtures extends Fixture
         $activities = new Activities();
         $activities->setName("Activité n°$i")
                      ->setDescription("Description de l'activité")
-                     ->setDate(new \DateTime());
+                     ->setDate(new \DateTime())
+                     ->setImage("https://picsum.photos/200/300");
+                     
         $manager->persist($activities);
         }
 
