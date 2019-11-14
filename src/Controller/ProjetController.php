@@ -97,4 +97,10 @@ class ProjetController extends AbstractController
     public function mentions(){
         return $this->render('projet/mentions.html.twig');
     }
+    /**
+     * @Route ("/cgv", name="cgv")
+     */
+    public function cgu(){
+        return $this->render('projet/cgu.html.twig');
+    }
 }
