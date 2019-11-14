@@ -12,6 +12,8 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
+use Symfony\Component\HttpFoundation\Session\SessionInterface;
+
 class SecurityController extends AbstractController
 {
     /**
@@ -57,37 +59,57 @@ class SecurityController extends AbstractController
         return $this->redirectToRoute("connexion");
     }
 
+
+
     /**
      * @Route("/connexion", name="connexion")
      */
-    public function connection(Request $request) {
+    public function connection(Request $request) 
+    {
         $user = new Users();
         $form = $this->createForm(ConnectionType::class, $user);
         
         if ($request->isMethod('GET'))
         {
+            $form->handleRequest($request);
             return $this->render('security/connexion.html.twig', ['form' => $form->createView()]);
         }
 
-        if ($request->isMethod('POST') && $form->isSubmitted() && $form->isValid())
+        if ($request->isMethod('POST'))// && $form->isSubmitted())// && $form->isValid())
         {
-            /*$data = $form->getData();
-            $params = http_build_query($getfields);
+            $form->handleRequest($request);
+            $data = $form->getData();
             $getfields = [
                 'user' => $data->getEmail(),
                 'pass' => $data->getPassword(),
                 'city' => "Lille"
+  
             ];
-            $curl = curl_init("10.97.184.127:8080/login" + $params);
+            $params = http_build_query($getfields);
+            $curl = curl_init("10.97.184.127:8080/login?".$params);
         
             curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
 
             $return = curl_exec($curl);
-            curl_close($curl);*/
+            curl_close($curl);
+            $return = json_decode($return);
 
-            return $this->render('security/registration.html.twig', ['form' => $form->createView()]);
+            $email=$data->getEmail();
+            $role=$return->role;
+            $token=$return->token;
+
+            $session=$request->getSession();
+            $session->set('token', $token);
+            $session->set('user', $email);
+            $session->set('role', $role);
+
+
+
+            return $this->render('projet/compte.html.twig');
         }
+        return $this->render('projet/accueil.html.twig');
     }
+    
 }
 
 

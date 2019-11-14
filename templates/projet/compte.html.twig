@@ -1,1 +1,6 @@
 {% extends 'base.html.twig' %}
+{% block body %}
+{% if  app.session.get('user') != NULL %}
+<h1> Vous êtes {{app.session.get('user')}}</h1>
+{% endif %}
+{% endblock %}

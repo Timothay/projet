@@ -56,8 +56,10 @@ class ProjetController extends AbstractController
     /**
      * @Route("/moncompte", name="moncompte")
      */
-    public function moncompte(){
+    public function moncompte(Request $request){
+
         return $this->render('projet/compte.html.twig');
+
     }
 
 
