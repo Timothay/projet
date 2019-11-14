@@ -3,6 +3,7 @@ namespace App\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Entity\Products;
+use App\Entity\Activities;
 
 use App\Form\ContactType;
 
@@ -77,7 +78,12 @@ class ProjetController extends AbstractController
      * @Route("/evenement/{id}", name="evenement")
      */
     public function evenement($id) {
-        return $this->render('projet/evenement.html.twig');
+        $repo=$this->getDoctrine()->getRepository(Activities::class);
+        $products = $repo->findAll();
+        return $this->render('projet/evenement.html.twig',[
+        'controller_name'=> 'ProjetController',
+        'activities'=>$activities
+        ]);
     }
     /**
      * @Route("/panier", name="panier")
