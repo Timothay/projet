@@ -5,6 +5,7 @@ use App\Entity\Activity;
 use App\Entity\Products;
 
 use App\Form\ContactType;
+use App\Entity\Activities;
 
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
@@ -68,7 +69,12 @@ class ProjetController extends AbstractController
      * @Route("/evenement/{id}", name="evenement")
      */
     public function evenement($id) {
-        return $this->render('projet/evenement.html.twig');
+        $repo=$this->getDoctrine()->getRepository(Activities::class);
+        $activities = $repo->findAll();
+        return $this->render('projet/evenement.html.twig',[
+        'controller_name'=> 'ProjetController',
+        'activities'=>$activities
+        ]);
     }
     /**
      * @Route("/panier", name="panier")
