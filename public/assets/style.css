@@ -91,7 +91,6 @@ footer{
 
 #closeCookieConsent {
     float: right;
-    display: inline-block;
     cursor: pointer;
     height: 20px;
     width: 20px;
