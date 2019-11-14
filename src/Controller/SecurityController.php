@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Users;
 use App\Form\RegistrationType;
+use App\Form\ConnectionType;
 
 use Symfony\Component\HttpFoundation\Request;
 use Doctrine\Common\Persistence\ObjectManager;
@@ -20,7 +21,6 @@ class SecurityController extends AbstractController
         $user = new Users();
         $form = $this->createForm(RegistrationType::class, $user);
 
-
         if ($request -> isMethod('GET')) {
             $form->handleRequest($request);
             return $this->render('security/registration.html.twig', ['form' => $form->createView()]);
@@ -30,7 +30,6 @@ class SecurityController extends AbstractController
             $form->handleRequest($request);
             
             if($form->isSubmitted()) {
-                $users= new Users;
                 $data = $form->getData();
                
 
@@ -41,7 +40,7 @@ class SecurityController extends AbstractController
                     $postfields = [
                         'center' => $data->getCenter(),
                         'email' => $data->getEmail(),
-                        'password' => $data->getPassword(),
+                        'password' => $data->getPassword()
                     ];
                     curl_setopt($curl, CURLOPT_HTTPHEADER, array("Content-Type: application/x-www-form-urlencoded"));
                     curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
@@ -58,8 +57,38 @@ class SecurityController extends AbstractController
         return $this->redirectToRoute("connexion");
     }
 
-
+    /**
+     * @Route("/connexion", name="connexion")
+     */
     public function connection(Request $request) {
+        $user = new Users();
+        $form = $this->createForm(ConnectionType::class, $user);
+        
+        if ($request->isMethod('GET'))
+        {
+            return $this->render('security/connexion.html.twig', ['form' => $form->createView()]);
+        }
 
+        if ($request->isMethod('POST') && $form->isSubmitted() && $form->isValid())
+        {
+            /*$data = $form->getData();
+            $params = http_build_query($getfields);
+            $getfields = [
+                'user' => $data->getEmail(),
+                'pass' => $data->getPassword(),
+                'city' => "Lille"
+            ];
+            $curl = curl_init("10.97.184.127:8080/login" + $params);
+        
+            curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+
+            $return = curl_exec($curl);
+            curl_close($curl);*/
+
+            return $this->render('security/registration.html.twig', ['form' => $form->createView()]);
+        }
     }
 }
+
+
+

@@ -16,7 +16,6 @@ class ProjetController extends AbstractController
     public function accueil()
     {
         return $this->render('projet/accueil.html.twig', [
-            'controller_name' => 'ProjetController',
         ]);
     }
 
@@ -60,19 +59,8 @@ class ProjetController extends AbstractController
     public function moncompte(){
         return $this->render('projet/compte.html.twig');
     }
-    /**
-     * @Route("/admin", name="admin")
-     */  
-    public function admin(){
-        return $this->render('projet/admin.html.twig');
-    }
-    /**
-     * @Route("/connexion", name="connexion")
-     */
-    public function connexion() {
-        return $this->render('projet/connexion.html.twig');
-    }
- 
+
+
     /**
      * @Route("/evenement/{id}", name="evenement")
      */

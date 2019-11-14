@@ -5,12 +5,14 @@ security:
     encoders:
        App\Entity\User:
         algorithm: auto
+
     providers:
         in_memory: { memory: ~ }
         in_database:
             entity:
                 class: src\Entity\Users
                 property: mail
+
 
     provider:     in_memory
     firewalls:
