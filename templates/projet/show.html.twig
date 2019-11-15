@@ -1,7 +1,7 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-<div class = "border-right bg-light p-5 m-4 wh-100 ww-100">
+<div class = "p-5 m-4 border-right bg-light">
     <article>
         <div class = "evenement">
             <h2>{{activities.name}}</h2>
@@ -12,12 +12,13 @@
                 <br/><br/>
                 {{activities.description | raw }}
                 <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
-        </div>
-          </article>
-
             </div>
+        </div>
+    </article>
+</div>
 
 <br/><br/><br/>
+
 
 <style>
 
@@ -30,5 +31,6 @@ img {
 }
 
 </style>
+
 
 {% endblock %}
