@@ -1,8 +1,9 @@
 {% extends 'base.html.twig' %}
 
 {% block stylesheets %}
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
 {% endblock %}
+
 {% block body %}
   {% if app.session.get('role') == 2 %}
     <a href="/ajouter" class="btn btn-primary add-product">Ajouter un produit</a>
@@ -30,7 +31,18 @@
 .row {
   justify-content: space-around;
 }
+
+h1 {
+  font-weight: bold;
+  color: white;
+}
+
+.card-title {
+  font-weight: bold;
+}
+
 </style>
+
 
 <div id="carousel_exemple" class="container">
  <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
@@ -74,12 +86,12 @@
 </div>
 <!--<div class="row justify-content-around"  >-->
 
-<div class="row mx-lg-2">
+<div class="row m-5">
 
 {% for product in products %}
-<table class="product_table">
+<table class="product_table mb-3">
   <tr>
-    <td><div class="col p-xl-2">
+    <td><div class="col">
       <div class="p-5 border-right bg-light">
         <div class="card" style="width: 30rem;">
           <img class="card-img-top" src="{{product.image}}" alt="Card image cap">
@@ -102,6 +114,9 @@
 
  
 </div>
+
+
+{% endblock %}
 
     {% block javascripts %}    
 
@@ -137,7 +152,5 @@
     }
     }
     </script>
-
-{% endblock %}
 
 {% endblock %}

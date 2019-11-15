@@ -1,16 +1,34 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
+<div class = "border-right bg-light p-5 m-4 wh-100 ww-100">
     <article>
-    <div class = "evenement">
-        <h2>{{activities.name}}</h2>
-        <div class="metadata"> Crée le {{activities.date | date('d/m/Y')}}</div>
-        <div class="content">
-            <img src= "{{activities.image}}" alt="">
-            <br>
-            {{activities.description | raw }}
-    </div>
+        <div class = "evenement">
+            <h2>{{activities.name}}</h2>
+            <div class="metadata"> Crée le {{activities.date | date('d/m/Y')}}</div>
+            <br/>
+            <div class="content border bg-white py-5 px-1">
+                <img src= "{{activities.image}}" alt="">
+                <br/><br/>
+                {{activities.description | raw }}
+                <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+        </div>
+          </article>
 
-    </article>
+            </div>
+
+<br/><br/><br/>
+
+<style>
+
+h2 {
+    font-weight: bold;
+}
+
+img {
+    max-width: 100%;
+}
+
+</style>
 
 {% endblock %}

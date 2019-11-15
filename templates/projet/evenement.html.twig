@@ -3,20 +3,36 @@
 {% block body %}
 
 {% for activity in activities %}
-<div class = "evenement">
-    <h2>{{activity.name}}</h2>
-    <div class="metadata"> Crée le {{activity.date | date('d/m/Y')}}</div>
-    <div class="content">
-        <img src= "{{activity.image}}" alt="">
-        <br>
-        {{activity.description | raw }}
-        <br>
-        <a href="/evenement/{{activity.id}}" class="nav-link">Voir l'événement</a>
-    </div>
-
-    
+<div class="border-right bg-light p-5 m-4 ww-100">
+    <div class="card">
+        <div class = "evenement">
+            <h2>{{activity.name}}</h2>
+            <div class="metadata p-2"> Crée le {{activity.date | date('d/m/Y')}}</div>
+            <div class="content m-1">
+                <img src= "{{activity.image}}" alt="">
+                <br/>
+               
+                <a href="/evenement/{{activity.id}}" class="btn btn-primary m-3">Voir l'événement</a>
+            </div>
+        </div>
+    </div>    
 </div>
+
 {% endfor %}
+
+<br/><br/><br/>
+
+<style>
+
+h2 {
+    font-weight: bold;
+}
+
+img {
+    max-width: 100%;
+}
+
+</style>
 
 
 {% endblock %}
