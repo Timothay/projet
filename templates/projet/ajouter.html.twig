@@ -8,8 +8,9 @@
 
 
 {% if app.session.get('role') == 2  %}
+<div id="formulaire">
 {{form(form)}}
-
+</div>
 {% else %}
 <h1>Vous n'avez pas les permissions.</h1><a href="/boutique"> Retour </a>
 {% endif %}
