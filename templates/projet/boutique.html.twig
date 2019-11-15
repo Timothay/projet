@@ -4,17 +4,32 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 {% endblock %}
 {% block body %}
+  {% if app.session.get('role') == NULL %}
+    <a href="/ajouter" class="btn btn-primary add-product">Ajouter un produit</a>
+    <style>
+    .add-product {
+      float: right;
+      margin-top: -50px;
+      margin-right: 20px;
+    }
+    </style>
+  {% endif %}
 <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names..">
 <style>
 #myInput {
   background-image: url('/css/searchicon.png'); /* Add a search icon to input */
   background-position: 10px 12px; /* Position the search icon */
   background-repeat: no-repeat; /* Do not repeat the icon image */
-  width: 100%; /* Full-width */
+  width: 80%; /* Full-width */
   font-size: 16px; /* Increase font-size */
   padding: 12px 20px 12px 40px; /* Add some padding */
   border: 1px solid #ddd; /* Add a grey border */
   margin-bottom: 12px; /* Add some space below the input */
+  margin-left: 10%;
+}
+
+.row {
+  justify-content: space-around;
 }
 </style>
 
@@ -60,12 +75,13 @@
 </div>
 <!--<div class="row justify-content-around"  >-->
 
-<div class="row mx-lg-2">
+<div class="row m-5">
 
 {% for product in products %}
-<table id="product_table">
+<table id="product_table" class="m-2">
+
   <tr>
-    <td><div class="col p-xl-2">
+    <td><div class="col">
       <div class="p-5 border-right bg-light">
         <div class="card" style="width: 30rem;">
           <img class="card-img-top" src="https://picsum.photos/286/180" alt="Card image cap">
@@ -88,16 +104,7 @@
 
 
 
- {% if app.session.get('role') == NULL %}
-    <div class="add-pro">
-    <a href="/ajouter" class="nav-link">Ajouter un produit</a>
-    </div>
-    <style>
-      .add-pro {
-
-      }
-    </style>
-  {% endif %}
+ 
 </div>
 
     {% block javascripts %}    
