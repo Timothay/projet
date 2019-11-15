@@ -49,12 +49,13 @@ class ProjetController extends AbstractController
     /**
      * @Route("/boutique", name="boutique")
      */
-    public function boutique(){
-        $repo=$this->getDoctrine()->getRepository(Products::class);
-        $products = $repo->findAll();
+    public function boutique()
+    {
+        $repo = $this->getDoctrine()->getRepository(Products::class);
+        $products = $repo->findBy(array(), ['nbVentes' => 'DESC']);
+
         return $this->render('projet/boutique.html.twig',[
-            'products'=>$products,
-            
+            'products' => $products
         ]);
     }
     /**
@@ -139,10 +140,17 @@ class ProjetController extends AbstractController
 
 
     /**
-     * @Route("/supprimer", name="supprimer")
+     * @Route("/supprimer/{id}", name="supprimer")
      */
-    public function supprimer(){
-        return $this->render('projet/supprimer.html.twig');
+    public function supprimer($id){
+        $em = $this->getDoctrine()->getManager();
+        $repo = $this->getDoctrine()->getRepository(Products::Class);
+
+        $product = $repo->find($id);
+        $em->remove($product);
+        $em->flush();
+
+        return $this ->RedirectToRoute('boutique');
     }
 
     /**
