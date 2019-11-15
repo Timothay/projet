@@ -1,4 +1,5 @@
 {% extends 'base.html.twig' %}
+
 {% block body %}
 
 {% for activity in activities %}
@@ -7,7 +8,13 @@
     <div class="metadata"> Crée le {{activity.date | date('d/m/Y')}}</div>
     <div class="content">
         <img src= "{{activity.image}}" alt="">
+        <br>
         {{activity.description | raw }}
+        <br>
+        <a href="/evenement/{{activity.id}}" class="btn btn-primary">Voir l'événement</a>
+    </div>
+
+    
 </div>
 {% endfor %}
 

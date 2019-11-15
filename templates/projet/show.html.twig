@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <article>
+    <div class = "evenement">
+        <h2>{{activities.name}}</h2>
+        <div class="metadata"> Crée le {{activities.date | date('d/m/Y')}}</div>
+        <div class="content">
+            <img src= "{{activities.image}}" alt="">
+            <br>
+            {{activities.description | raw }}
+    </div>
+
+    </article>
+
+{% endblock %}
