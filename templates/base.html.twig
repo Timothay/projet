@@ -77,11 +77,6 @@
 
 		<!--<div id="page-content">-->
 
-
-		{% if  app.session.get('user') != NULL %}
-		<p> Connecté en tant que {{app.session.get('user')}}</p>
-		{% endif %}
-
 		<br /><br /><br />
 
 					{% block body %}{% endblock %}

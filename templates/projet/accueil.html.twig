@@ -13,5 +13,10 @@
     </ul>
 </div>#}
 
-<h1>bienvenue sur la page d'accueil du BDE CESI.</h1>
+    {% if  app.session.get('user') != NULL %}
+		<h1>Bienvenue sur la page d'accueil du BDE CESI, {{app.session.get('user')}}.</h1>
+	{% else %}
+        <h1>Bienvenue sur la page d'accueil du BDE CESI.</h1>
+    {% endif %}
+
 {% endblock %}
