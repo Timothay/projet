@@ -5,73 +5,68 @@
 	<head>
   		<meta charset="utf-8">
   		{% block title %}{% endblock title %}
-  <meta name="author" content="">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="https://bootswatch.com/4/lux/bootstrap.min.css">
-	<link href="{{ asset('assets/style.css') }}" rel="stylesheet">
-	<link rel="stylesheet" href="{{ asset('assets/vendors/fontawesome/css/all.min.css') }}">
-	<link rel="stylesheet" href="{{ asset('assets/vendors/bootstrap/css/bootstrap.min.css') }}">
-	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+		<meta name="author" content="Ecole d'ingenieur CESI">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="description" content="This is a website that all students and teachers of the CESI school can use to all know about it">
+		<meta name="keywords" content="CESI, Ecole, School, Students, Etudiants, Teachers, BDE, Evenements, Boutique">
+
+		<link rel="stylesheet" href="https://bootswatch.com/4/lux/bootstrap.min.css">
+		<link href="{{ asset('assets/style.css') }}" rel="stylesheet">
+		<link rel="stylesheet" href="{{ asset('assets/vendors/fontawesome/css/all.min.css') }}">
+		<link rel="stylesheet" href="{{ asset('assets/vendors/bootstrap/css/bootstrap.min.css') }}">
+		<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
         {% block stylesheets %}
         	
     	{% endblock %}
     </head>
 
-    <body onload="checkCookie()">
+    <body>
 
 		<header>
-			{% if  app.session.get('user') == NULL %}
 			<div id="header_up">
 				<nav class="navbar navbar-expand-xl navbar-light bg-light">
-				<a class="navbar-brand" href="/">
-					<img class="logo" src="assets/images/logo-cesi.jpg" max-width="100%" height="30" alt="">
-				</a>
-				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-					<span class="navbar-toggler-icon"></span>
-						</button>
-				<div class="collapse navbar-collapse" id="navbarNav">
-					<ul class="navbar-nav ml-auto">
-					<li class="nav-item">
-						<a class="nav-link" href="/">Accueil</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="/calendrier">Agenda des événements</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="/boutique">Boutique</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="/contact">Nous Contacter</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="/connexion">Connexion</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="/inscription">Inscription</a>
-					</li>
-					</ul>
+					<a class="navbar-brand" href="/">
+						<img class="logo" src="assets/images/logo-cesi.jpg" max-width="100%" height="30" alt="">
+					</a>
+					<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+						<span class="navbar-toggler-icon"></span>
+							</button>
+					<div class="collapse navbar-collapse" id="navbarNav">
+						<ul class="navbar-nav ml-auto">
+							<li class="nav-item">
+								<a class="nav-link" href="/">Accueil</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="/calendrier">Agenda des événements</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="/boutique">Boutique</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="/contact">Nous Contacter</a>
+							</li>
+							{% if  app.session.get('user') == NULL %}
+							<li class="nav-item">
+								<a class="nav-link" href="/connexion">Connexion</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="/inscription">Inscription</a>
+							</li>
+							<!-- Si connecté -->
+							{% elseif  app.session.get('user') != NULL %}
+							<li class="nav-item">
+								<a class="nav-link" href="/moncompte">Mon compte</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="/deconnexion">Déconnexion</a>
+							</li>
+							{% endif %}
+						</ul>
 					</div>
-					</nav>
-					</div>
-					{% endif %}
-					<!--Bouton si connecté-->
-
-
-					{% if  app.session.get('user') != NULL %}
-					<div id="header_up">
-					<li class="nav-item">
-						<p> Connecté en tant que {{app.session.get('user')}}</p>
-						
-						<a href="/moncompte"><button type="button" class="btn btn-primary">Mon compte</button></a>
-					</li>
-					<li class="nav-item">
-						<a href="/deconnexion"><button type="button" class="btn btn-primary">Déconnexion</button></a>	
-					</li>
-					</div>
-					{% endif %}
-					
+				</nav>
+			</div>
+								
 
 			<div id="header_down">
 				<p>BDE CESI</p>
@@ -82,16 +77,10 @@
 
 		<div id="page-content">
 
-			<!--<div id="sidebar" class="w3-sidebar w3-collapse  w3-animate-left">
-					<img class="logo"
-					src="./assets/images/logo-cesi-ecole-ingenieurs.jpg">
-				<br>
-				<br>
-					<a href="/"><button id="slid-bar-btn" type="button" class="btn btn-primary" aria-pressed="false">Accueil</button></a>
-					<a href="/calendrier"><button id="slid-bar-btn" type="button" class="btn btn-primary" aria-pressed="false">Agenda des événements</button></a>
-					<a href="/boutique"><button id="slid-bar-btn" type="button" class="btn btn-primary">Boutique</button></a>
-					<a href="/contact"><button id="slid-bar-btn" type="button" class="btn btn-primary" aria-pressed="false">Nous Contacter</button></a>
-			</div>-->
+
+		{% if  app.session.get('user') != NULL %}
+		<p> Connecté en tant que {{app.session.get('user')}}</p>
+		{% endif %}
 
 		<br /><br /><br />
 
@@ -100,8 +89,9 @@
 		<br /><br /><br />
 
 
-			
-		<!--<footer>
+		<!-- Liens à utiliser pour pofiner le footer -->
+
+		<!--
 			<div id="contact">
 				<a href="/contact"><button type="button" class="btn btn-primary" id="" aria-pressed="false">Nous Contacter</button></a>
 			</div>
@@ -117,7 +107,7 @@
 				</div>
 			</div>
 
-		</footer>-->
+		-->
 
   
 		</div>
@@ -143,43 +133,6 @@
  		<script src="./assets/vendors/script.js"></script>
 
 		{% block javascripts %}{% endblock %}
-
-		<!--<script>
-		function setCookie(cname,cvalue,exdays) {
-		var d = new Date();
-		d.setTime(d.getTime() + (exdays*24*60*60*1000));
-		var expires = "expires=" + d.toGMTString();
-		document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
-		}
-
-		function getCookie(cname) {
-		var name = cname + "=";
-		var decodedCookie = decodeURIComponent(document.cookie);
-		var ca = decodedCookie.split(';');
-		for(var i = 0; i < ca.length; i++) {
-			var c = ca[i];
-			while (c.charAt(0) == ' ') {
-			c = c.substring(1);
-			}
-			if (c.indexOf(name) == 0) {
-			return c.substring(name.length, c.length);
-			}
-		}
-		return "";
-		}
-
-		function checkCookie() {
-		var user=getCookie("username");
-		if (user != "") {
-			alert("Welcome again " + user);
-		} else {
-			user = prompt("Please enter your name:","");
-			if (user != "" && user != null) {
-			setCookie("username", user, 30);
-			}
-		}
-		}
-		</script>-->
     
 	</body>
 
