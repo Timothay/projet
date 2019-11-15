@@ -23,6 +23,7 @@ class RegistrationType extends AbstractType
             ->add('center', ChoiceType::class, array('label' => 'Centre', 'required' => true, 'choices' => ['Lille' => 'Lille', 'Arras' => 'Arras', 'Rouen' => 'Rouen', 'Triangle des Bermudes' => 'Triangle des Bermudes', 'Diagonale du vide' => 'Diagonale du vide', 'Kremlin' => 'Kremlin'], 'attr' => array('class' =>'form-group', 'placeholder' =>'Sélectionnez le centre')))
             ->add('password', PasswordType::class, array('label' => 'Mot de passe', 'required' => true, 'attr' => array('class' =>'form-group', 'placeholder' =>'Entrez votre mot de passe')))
             ->add('confirm_password', PasswordType::class, array('label' => 'Veuillez confirmer le mot de passe', 'required' => true, 'attr' => array('class' =>'form-group', 'placeholder' =>'Confirmez votre mot de passe')))
+            ->add('nom', CheckBoxType::class, array('label' => 'J\'accepte les Mentions légales', 'required' => true))
             ->add('submit', SubmitType::class, array('label' =>'INSCRIPTION', 'attr' =>array('class' => 'button')))
         ;
     }

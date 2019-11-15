@@ -31,3 +31,8 @@ font-style: bold;
 text-align: center;
 vertical-align: middle;
 }
+
+
+#terms {
+    padding: 1em;
+}

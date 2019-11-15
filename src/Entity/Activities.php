@@ -36,6 +36,11 @@ class Activities
      */
     private $image;
 
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $masquee;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -86,5 +91,16 @@ class Activities
     {
         $this->image=$image;
         return $this;
+    }
+
+    public function setMasquee(bool $masquee): self
+    {
+        $this->masquee=$masquee;
+        return $this;
+    }
+
+    public function getMasquee(): ?bool
+    {
+        return $this->masquee;
     }
 }

@@ -1,8 +1,19 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-
+ {% if app.session.get('role') == 2 %}
+    <a href="/ajouteracti" class="btn btn-primary add-product">Ajouter un événement</a>
+    <style>
+    .add-product {
+      float: right;
+      margin-top: -50px;
+      margin-right: 20px;
+    }
+    </style>
+  {% endif %}
 {% for activity in activities %}
+{% if activity.masquee %}
+{% if app.session.get('role') == 2 or app.session.get('role') == 3 %}
 <div class = "evenement">
     <h2>{{activity.name}}</h2>
     <div class="metadata"> Crée le {{activity.date | date('d/m/Y')}}</div>
@@ -11,11 +22,35 @@
         <br>
         {{activity.description | raw }}
         <br>
-        <a href="/evenement/{{activity.id}}" class="nav-link">Voir l'événement</a>
+        <a href="/evenement/{{activity.id}}" class="btn btn-primary">Voir l'événement</a>
+        {% if app.session.get('role') == 2 %}
+         <a href="" class="btn btn-primary">L'activité a été suspendue par un membre du personnel</a>
+         {% elseif app.session.get('role') == 3 %}
+         <a href="/afficheracti/{{activity.id}}" class="btn btn-primary">Rétablir l'évènement</a>
+        {% endif %}
+    </div> 
+</div>
+{% endif %}
+ {% else %}
+<div class = "evenement">
+    <h2>{{activity.name}}</h2>
+    <div class="metadata"> Crée le {{activity.date | date('d/m/Y')}}</div>
+    <div class="content">
+        <img src= "{{activity.image}}" alt="">
+        <br>
+        {{activity.description | raw }}
+        <br>
+        <a href="/evenement/{{activity.id}}" class="btn btn-primary">Voir l'événement</a>
+        {% if app.session.get('role') == 2 %}
+         <a href="/supprimeracti/{{activity.id}}" class="btn btn-primary">Supprimer l'évènement</a>
+         {% elseif app.session.get('role') == 3 %}
+         <a href="/masqueracti/{{activity.id}}" class="btn btn-primary">Suspendre l'évènement</a>
+        {% endif %}
     </div>
 
     
 </div>
+{% endif %}
 {% endfor %}
 
 

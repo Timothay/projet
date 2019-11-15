@@ -7,6 +7,7 @@ use App\Entity\Products;
 use App\Form\ContactType;
 use App\Entity\Activities;
 
+use App\Form\AddActivitiesType;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
@@ -100,6 +101,8 @@ class ProjetController extends AbstractController
     public function panier() {
         return $this->render('projet/panier.php');
     }
+
+
     /**
      * @Route("/ajouter", name="ajouter")
      */
@@ -131,9 +134,42 @@ class ProjetController extends AbstractController
 
 
         }
+    }
 
 
-        return $this->render('projet/ajouter.html.twig');
+        /**
+     * @Route("/ajouteracti", name="ajouterActi")
+     */
+    public function ajouterActi(EntityManagerInterface $em, Request $request){
+        $ajout = new Activities();
+        $form = $this->createForm(AddActivitiesType::class, $ajout);
+
+        if ($request -> isMethod('GET')){
+            $form->handleRequest($request);
+            return $this->render('projet/ajouteracti.html.twig', ['form' => $form->createView()]);
+
+        }
+        if ($request -> isMethod('POST')){
+            $form->handleRequest($request);
+            $data = $form->getData();
+            
+            $ajout -> setName($data->getName());
+            $ajout -> setDate($data->getDate());
+            $ajout -> setDescription($data->getDescription());
+            $ajout -> setImage($data->getImage());
+
+            $em->persist($ajout);
+            $em->flush();
+
+            return $this ->RedirectToRoute('evenement');
+
+
+
+
+
+        }
+
+        return $this->render('projet/ajouteracti.html.twig');
 
 
     }
@@ -151,6 +187,50 @@ class ProjetController extends AbstractController
         $em->flush();
 
         return $this ->RedirectToRoute('boutique');
+    }
+
+        /**
+     * @Route("/supprimeracti/{id}", name="supprimeracti")
+     */
+    public function supprimeracti($id){
+        $em = $this->getDoctrine()->getManager();
+        $repo = $this->getDoctrine()->getRepository(Activities::Class);
+
+        $activity = $repo->find($id);
+        $em->remove($activity);
+        $em->flush();
+
+        return $this ->RedirectToRoute('evenement');
+    }
+
+        /**
+     * @Route("/masqueracti/{id}", name="masqueracti")
+     */
+    public function masqueracti($id)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $repo = $this->getDoctrine()->getRepository(Activities::Class);
+
+        $activity = $repo->find($id);
+        $activity->setMasquee(true);
+        $em->flush();
+
+        return $this ->RedirectToRoute('evenement');
+    }
+
+            /**
+     * @Route("/afficheracti/{id}", name="afficheracti")
+     */
+    public function afficheracti($id)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $repo = $this->getDoctrine()->getRepository(Activities::Class);
+
+        $activity = $repo->find($id);
+        $activity->setMasquee(false);
+        $em->flush();
+
+        return $this ->RedirectToRoute('evenement');
     }
 
     /**

@@ -53,6 +53,7 @@ class Users
      */
     public $confirm_password;
 
+
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Role", inversedBy="users")
      */
