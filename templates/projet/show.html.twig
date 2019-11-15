@@ -1,5 +1,6 @@
 {% extends 'base.html.twig' %}
 
+
 {% block body %}
 {% if not activities.masquee %}
 <div class = "p-5 m-4 border-right bg-light">
@@ -13,7 +14,7 @@
             {% endif %}
             <br/>
             <div class="content border bg-white py-5 px-1">
-                <img src= "{{activities.image}}" alt="">
+                <img class="event" src= "{{activities.image}}" alt="">
                 <br/><br/>
                 {{activities.description | raw }}
             </div>
@@ -36,8 +37,12 @@ h2 {
     font-weight: bold;
 }
 
-img {
+.event {
     max-width: 100%;
+}
+
+.logo_BDE, .logo {
+    display: none;
 }
 
 </style>

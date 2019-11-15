@@ -16,48 +16,47 @@
 {% if app.session.get('role') == 2 or app.session.get('role') == 3 %}
 <div class="p-5 m-4 border-right bg-light">
     <div class="card">
-<div class = "evenement">
-    <h2>{{activity.name}}</h2>
-    <div class="metadata"> Crée le {{activity.date | date('d/m/Y')}}</div>
-    <div class="content">
-        <img src= "{{activity.image}}" alt="">
-        <br>
-        {{activity.description | raw }}
-        <br>
-        <a href="/evenement/{{activity.id}}" class="btn btn-primary">Voir l'événement</a>
-        {% if app.session.get('role') == 2 %}
-         <a href="" class="btn btn-primary">L'activité a été suspendue par un membre du personnel</a>
-         {% elseif app.session.get('role') == 3 %}
-         <a href="/afficheracti/{{activity.id}}" class="btn btn-primary">Rétablir l'évènement</a>
-        {% endif %}
-    </div> 
-</div>
+        <div class = "evenement">
+            <h2>{{activity.name}}</h2>
+            <div class="metadata p-2"> Crée le {{activity.date | date('d/m/Y')}}</div>
+            <div class="content m-1">
+                <img class="event" src= "{{activity.image}}" alt="">
+                <br/><br/>
+                {{activity.description | raw }}
+                <br>
+                <a href="/evenement/{{activity.id}}" class="btn btn-primary m-3">Voir l'événement</a>
+                {% if app.session.get('role') == 2 %}
+                <a class="btn btn-primary m-3">L'activité a été suspendue par un membre du personnel</a>
+                {% elseif app.session.get('role') == 3 %}
+                <a href="/afficheracti/{{activity.id}}" class="btn btn-primary m-3">Rétablir l'évènement</a>
+                {% endif %}
+            </div> 
+        </div>
     </div>    
 </div>
 {% endif %}
- {% else %}
- <div class="p-5 m-4 border-right bg-light">
+{% else %}
+<div class="p-5 m-4 border-right bg-light">
     <div class="card">
-<div class = "evenement">
-    <h2>{{activity.name}}</h2>
-    <div class="metadata"> Crée le {{activity.date | date('d/m/Y')}}</div>
-    <div class="content">
-        <img src= "{{activity.image}}" alt="">
-        <br>
-        {{activity.description | raw }}
-        <br>
-        <a href="/evenement/{{activity.id}}" class="btn btn-primary">Voir l'événement</a>
-        {% if app.session.get('role') == 2 %}
-         <a href="/supprimeracti/{{activity.id}}" class="btn btn-primary">Supprimer l'évènement</a>
-         {% elseif app.session.get('role') == 3 %}
-         <a href="/masqueracti/{{activity.id}}" class="btn btn-primary">Suspendre l'évènement</a>
-        {% endif %}
-    </div>
-        </div>    
+        <div class = "evenement">
+            <h2>{{activity.name}}</h2>
+            <div class="metadata p-2"> Crée le {{activity.date | date('d/m/Y')}}</div>
+            <div class="content m-1">
+                <img class="event" src= "{{activity.image}}" alt="">
+                <br/><br/>
+                {{activity.description | raw }}
+                <br/>
+                <a href="/evenement/{{activity.id}}" class="btn btn-primary m-3">Voir l'événement</a>
+                {% if app.session.get('role') == 2 %}
+                <a href="/supprimeracti/{{activity.id}}" class="btn btn-primary m-3">Supprimer l'évènement</a>
+                {% elseif app.session.get('role') == 3 %}
+                <a href="/masqueracti/{{activity.id}}" class="btn btn-primary m-3">Suspendre l'évènement</a>
+                {% endif %}
+            </div>
+        </div> 
+    </div>    
 </div>
 
-    
-</div>
 {% endif %}
 {% endfor %}
 
@@ -69,7 +68,7 @@ h2 {
     font-weight: bold;
 }
 
-img {
+.event {
     max-width: 100%;
 }
 
