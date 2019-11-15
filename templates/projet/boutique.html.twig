@@ -78,8 +78,7 @@
 <div class="row m-5">
 
 {% for product in products %}
-<table id="product_table" class="m-2">
-
+<table class="product_table" class="m-2">
   <tr>
     <td><div class="col">
       <div class="p-5 border-right bg-light">
@@ -97,10 +96,9 @@
       </div>
     </div>
   </tr>
-  
 </table>
-
 {% endfor %}
+
 
  
 </div>
@@ -117,8 +115,12 @@
     var input, filter, table, tr, td, i, txtValue;
     input = document.getElementById("myInput");
     filter = input.value.toUpperCase();
-    table = document.getElementById("product_table");
-    tr = table.getElementsByTagName("tr");
+    table = document.getElementsByClassName("product_table");
+
+    for (j = 0; j < table.length; j++)
+    {
+
+    tr = table[j].getElementsByTagName("tr");
 
     // Loop through all table rows, and hide those who don't match the search query
       for (i = 0; i < tr.length; i++) {
@@ -132,6 +134,8 @@
             }
         }
       }
+    }
+
     }
     </script>
 
