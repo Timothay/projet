@@ -1,12 +1,13 @@
 <?php
 namespace App\Controller;
 use App\Form\AddType;
+use App\Entity\Activity;
 use App\Entity\Products;
+
 use App\Form\ContactType;
 use App\Entity\Activities;
 
 use Doctrine\ORM\EntityManagerInterface;
-
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -52,7 +53,8 @@ class ProjetController extends AbstractController
         $repo=$this->getDoctrine()->getRepository(Products::class);
         $products = $repo->findAll();
         return $this->render('projet/boutique.html.twig',[
-            'products'=>$products
+            'products'=>$products,
+            
         ]);
     }
     /**
@@ -106,19 +108,22 @@ class ProjetController extends AbstractController
 
         if ($request -> isMethod('GET')){
             $form->handleRequest($request);
-            return $this->render('projet/ajout.html.twig', ['form' => $form->createView()]);
+            return $this->render('projet/ajouter.html.twig', ['form' => $form->createView()]);
 
         }
         if ($request -> isMethod('POST')){
+            $form->handleRequest($request);
             $data = $form->getData();
             
-            $ajout = setName($data['name']);
-            $ajout = setPrice($data['price']);
-            $ajout = setImage($data['image']);
+            $ajout -> setName($data->getName());
+            $ajout -> setNbVentes(0);
+            $ajout -> setPrice($data->getPrice());
+            $ajout -> setImage($data->getImage());
 
             $em->persist($ajout);
             $em->flush();
 
+            return $this ->RedirectToRoute('boutique');
 
 
 
@@ -131,6 +136,15 @@ class ProjetController extends AbstractController
 
 
     }
+
+
+    /**
+     * @Route("/supprimer", name="supprimer")
+     */
+    public function supprimer(){
+        return $this->render('projet/supprimer.html.twig');
+    }
+
     /**
      * @Route("/mentions", name="mentions")
      */

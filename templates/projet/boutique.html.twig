@@ -72,7 +72,10 @@
   <div class="card-body">
     <h5 class="card-title">{{product.name}}</h5>
     <p class="card-text">{{product.price}}€</p>
-    <a href="#" class="btn btn-primary">Ajouter au Panier</a></td>
+    {% if app.session.get('role') == 2 %}
+    <a href="/supprimer/{{product.id}}" class="btn btn-primary">Supprimer le produit</a>
+    {% endif %}
+    <a href="#" class="btn btn-primary">Ajouter au Panier</a>
   </div>
 </div>
 </div>

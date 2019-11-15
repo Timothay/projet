@@ -74,6 +74,18 @@ class Products
 
         return $this;
     }
+
+    public function getNbVentes(): ?int
+    {
+        return $this->nbVentes;
+    }
+
+    public function setNbVentes(int $nbVentes): self
+    {
+        $this->nbVentes = $nbVentes;
+
+        return $this;
+    }
     public function setName(string $name): self
     {
         $this->name = $name;
