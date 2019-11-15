@@ -81,13 +81,26 @@
       </div>
     </div>
   </tr>
+  
 </table>
+
 {% endfor %}
 
  {% if app.session.get('role') == 2 %}
     <a href="/ajouter" class="nav-link">Ajouter un produit</a>
   {% endif %}
 
+
+ {% if app.session.get('role') == NULL %}
+    <div class="add-pro">
+    <a href="/ajouter" class="nav-link">Ajouter un produit</a>
+    </div>
+    <style>
+      .add-pro {
+
+      }
+    </style>
+  {% endif %}
 </div>
 
     {% block javascripts %}    
