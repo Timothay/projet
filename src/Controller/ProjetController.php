@@ -75,7 +75,6 @@ class ProjetController extends AbstractController
         $repo=$this->getDoctrine()->getRepository(Activities::class);
         $activities = $repo->findAll();
         return $this->render('projet/evenement.html.twig',[
-        'controller_name'=> 'ProjetController',
         'activities'=>$activities
         ]);
     }
@@ -87,7 +86,6 @@ class ProjetController extends AbstractController
         $repo=$this->getDoctrine()->getRepository(Activities::class);
         $activities = $repo->find($id);
         return $this->render('projet/show.html.twig',[
-        'controller_name'=> 'ProjetController',
         'activities'=>$activities
         ]);
     }
