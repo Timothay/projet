@@ -48,6 +48,10 @@ html{
 	display: none;
 }
 
+.evenement {
+    text-align: center;
+}
+
 
 footer{
 	background:#ccc;
