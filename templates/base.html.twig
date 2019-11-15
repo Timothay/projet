@@ -16,10 +16,9 @@
 		<link rel="stylesheet" href="{{ asset('assets/vendors/bootstrap/css/bootstrap.min.css') }}">
 		<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 
-		{% block stylesheets %}
+        {% block stylesheets %}
         	
     	{% endblock %}
-
     </head>
 
     <body>
@@ -39,7 +38,7 @@
 								<a class="nav-link" href="/">Accueil</a>
 							</li>
 							<li class="nav-item">
-								<a class="nav-link" href="/evenement">Événements</a>
+								<a class="nav-link" href="/calendrier">Agenda des événements</a>
 							</li>
 							<li class="nav-item">
 								<a class="nav-link" href="/boutique">Boutique</a>
@@ -110,7 +109,7 @@
 		<footer id="sticky-footer" class="py-4 bg-dark text-white-50">
 			<div class="container text-center">
 				<a href="/mentions" class="nav-link">Mentions Légales</a>
-				<a href="/cgv" class="nav-link">CGV</a>
+				<a href="/cgv" classe="nav-link">CGV</a>
 			</div>
 		</footer>
 
@@ -118,8 +117,6 @@
 			Ce site utilise les cookies.&nbsp;<a href="https://fr.wikipedia.org/wiki/Cookie_(cuisine)" target="_blank">Plus d'informations</a>. <a class="cookieConsentOK">Compris !</a>
 			<div id="closeCookieConsent">x</div>		
 		</div>
-
-		
 				
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
  		<script
@@ -131,7 +128,6 @@
  		<script src="./assets/vendors/script.js"></script>
 
 		{% block javascripts %}{% endblock %}
-		
     
 	</body>
 
