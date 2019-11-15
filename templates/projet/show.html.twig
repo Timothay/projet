@@ -1,23 +1,33 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
+{% if not activities.masquee %}
 <div class = "p-5 m-4 border-right bg-light">
     <article>
         <div class = "evenement">
             <h2>{{activities.name}}</h2>
             <div class="metadata"> Crée le {{activities.date | date('d/m/Y')}}</div>
+            {% if app.session.get('role') == 2 %}
+                <a href="/inscritsa/{{activities.id}}" class="btn btn-primary">Récupérer la liste des inscrits</a>
+                </br>
+            {% endif %}
             <br/>
             <div class="content border bg-white py-5 px-1">
                 <img src= "{{activities.image}}" alt="">
                 <br/><br/>
                 {{activities.description | raw }}
-                <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
             </div>
+            <br/>
+            {% if app.session.get('role') != NULL  %}
+            <a href="/sinscrireacti/{{activities.id}}" class="btn btn-primary">S'inscrire à l'évènement</a>
+            {{form(form)}}
+            {% endif %}
         </div>
     </article>
 </div>
-
-<br/><br/><br/>
+{% else %}
+<h1> Cet évènement n'est actuellement pas consultable </h1>
+{% endif %}
 
 
 <style>

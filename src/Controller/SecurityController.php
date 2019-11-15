@@ -97,11 +97,13 @@ class SecurityController extends AbstractController
             $email=$data->getEmail();
             $role=$return->role;
             $token=$return->token;
+            $id=$return->id;
 
             $session=$request->getSession();
             $session->set('token', $token);
             $session->set('user', $email);
             $session->set('role', $role);
+            $session->set('user_id', $id);
 
 
 
