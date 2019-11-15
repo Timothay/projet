@@ -49,12 +49,6 @@ html{
 }
 
 
-/* Partie principale de la page */
-#content {
-	margin: 3%;
-}
-
-
 footer{
 	background:#ccc;
 	position:absolute;
