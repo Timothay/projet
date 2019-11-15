@@ -65,9 +65,9 @@ class ProjetController extends AbstractController
 
 
     /**
-     * @Route("/evenement/{id}", name="evenement")
+     * @Route("/evenement", name="evenement")
      */
-    public function evenement($id) {
+    public function evenement() {
         $repo=$this->getDoctrine()->getRepository(Activities::class);
         $activities = $repo->findAll();
         return $this->render('projet/evenement.html.twig',[
@@ -75,6 +75,22 @@ class ProjetController extends AbstractController
         'activities'=>$activities
         ]);
     }
+
+    /**
+     * @Route("/evenement/{id}", name="evenement_show")
+     */
+    public function show($id) {
+        $repo=$this->getDoctrine()->getRepository(Activities::class);
+        $activities = $repo->find($id);
+        return $this->render('projet/show.html.twig',[
+        'controller_name'=> 'ProjetController',
+        'activities'=>$activities
+        ]);
+    }
+
+
+
+
     /**
      * @Route("/panier", name="panier")
      */
