@@ -1,6 +1,10 @@
 {% extends 'base.html.twig' %}
+
 {% block body %}
+<!-- Display the e-mail if connected -->
 {% if  app.session.get('user') != NULL %}
-<h1> Vous êtes {{app.session.get('user')}}</h1>
+    <h1> Vous êtes {{app.session.get('user')}}</h1>
 {% endif %}
+<!--  -->
+
 {% endblock %}

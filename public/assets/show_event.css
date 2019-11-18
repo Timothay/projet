@@ -1,0 +1,14 @@
+h2 
+{
+    font-weight: bold;
+}
+
+.event 
+{
+    max-width: 100%;
+}
+
+.logo_BDE, .logo 
+{
+    display: none;
+}

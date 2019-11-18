@@ -1,19 +1,23 @@
 /* Global */
-body{
+body
+{
     margin: 0px;
 	background:#000000;
 	background-color: black;
 	overflow-x: hidden;
 }
 
-html{
+html
+{
 	position: relative;
 	min-height: 100%;
 }
+/* */
 
 
 /* Header */
-#header_up{
+#header_up
+{
 	position: fixed;
 	text-align: right;
 	background-color:#3677EA;
@@ -24,13 +28,15 @@ html{
 	z-index: 999;
 }
 
-#header_up button{
+#header_up button
+{
 	border-color: black;
 	background-color: #3644EA;
 
 }
 
-#header_down{
+#header_down
+{
 	background-image:url("https://picsum.photos/1903/200");
 	background-color:black;
 	color: white;
@@ -42,18 +48,23 @@ html{
 	font-size:3em;
 	margin-top: 70px;
 }
+/* */
 
-/*Boutons "mon compte" et "deconnexion"*/
-.connecte {
+/* "My account" and "Disconnect" buttons */
+.connecte 
+{
 	display: none;
 }
+/* */
 
-.evenement {
+.evenement
+{
     text-align: center;
 }
 
-
-footer{
+/* Footer */
+footer
+{
 	background:#ccc;
 	position:absolute;
 	bottom:0;
@@ -62,12 +73,13 @@ footer{
 	text-align:center;
 	vertical-align: center;	
 }
+/* */
 
 
 
-/* Pop-up de cookie */
-
-#cookieConsent {
+/* Cookies' pop-up */
+#cookieConsent 
+{
     background-color: rgba(20,20,20,0.8);
     min-height: 26px;
     font-size: 14px;
@@ -82,12 +94,14 @@ footer{
 	z-index: 9999;
 }
 
-#cookieConsent a {
+#cookieConsent a 
+{
     color: #4B8EE7;
 	text-decoration: none;
 }
 
-#closeCookieConsent {
+#closeCookieConsent 
+{
     float: right;
     cursor: pointer;
     height: 20px;
@@ -96,11 +110,13 @@ footer{
     font-weight: bold;
 }
 
-#closeCookieConsent:hover {
+#closeCookieConsent:hover 
+{
     color: #FFF;
 }
 
-#cookieConsent a.cookieConsentOK {
+#cookieConsent a.cookieConsentOK 
+{
     background-color: #4B8EE7;
     color: #000;
     display: inline-block;
@@ -110,12 +126,24 @@ footer{
     margin: 0 60px 0 10px;
 }
 
-#cookieConsent a.cookieConsentOK:hover {
+#cookieConsent a.cookieConsentOK:hover 
+{
     background-color: #3177D5;
 }
+/* */
 
 
-/* ???? */
-* {
+* 
+{
   box-sizing: border-box;
 }
+
+/* Media queries */
+@media screen and (max-width: 400px), screen and (max-height: 800px) 
+{
+	.margin-bottom-resp
+	{
+		margin-bottom: 50px;
+	}
+}
+/* */

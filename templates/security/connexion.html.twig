@@ -6,12 +6,14 @@
 {% endblock %}
 
 {% block body %}
+<!-- Sign in form -->
 <div id="formulaire">
-<div id="titleauth">
-    <h1> Connexion </h1>
-    <h4> Connectez vous avec votre adresse CESI </h4>
+    <div id="titleauth">
+        <h1> Connexion </h1>
+        <h4> Connectez vous avec votre adresse CESI </h4>
+    </div>
+    {{form(form)}}
 </div>
-{{form(form)}}
-</div>
+<!--  -->
 {% endblock %}
    

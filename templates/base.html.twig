@@ -4,27 +4,33 @@
 <html>
 	<head>
   		<meta charset="utf-8">
+		<!-- Symfony's block to implement the title of each page -->
   		{% block title %}{% endblock title %}
 		<meta name="author" content="Ecole d'ingenieur CESI">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta name="description" content="This is a website that all students and teachers of the CESI school can use to all know about it">
 		<meta name="keywords" content="CESI, Ecole, School, Students, Etudiants, Teachers, BDE, Evenements, Boutique">
 
+		<!-- List of the base scripts -->
 		<link rel="stylesheet" href="https://bootswatch.com/4/lux/bootstrap.min.css">
 		<link href="{{ asset('assets/style.css') }}" rel="stylesheet">
 		<link rel="stylesheet" href="{{ asset('assets/vendors/fontawesome/css/all.min.css') }}">
 		<link rel="stylesheet" href="{{ asset('assets/vendors/bootstrap/css/bootstrap.min.css') }}">
 		<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+		<!--  -->
 
-        {% block stylesheets %}
-        	
-    	{% endblock %}
+		<!-- Symfony's block to implement css files for each page -->
+        {% block stylesheets %}{% endblock %}
+		<!--  -->
     </head>
 
     <body>
 
+		<!-- Header -->
 		<header>
+			<!-- Header's first part -->
 			<div id="header_up">
+				<!-- Navbar -->
 				<nav class="navbar navbar-expand-xl navbar-light bg-light">
 					<a class="navbar-brand" href="/">
 						<img class="logo" src="assets/images/logo-cesi.jpg" max-width="100%" height="30" alt="">
@@ -46,6 +52,7 @@
 							<li class="nav-item">
 								<a class="nav-link" href="/contact">Nous Contacter</a>
 							</li>
+							<!-- Only appear if disconnected -->
 							{% if  app.session.get('user') == NULL %}
 							<li class="nav-item">
 								<a class="nav-link" href="/connexion">Connexion</a>
@@ -53,7 +60,8 @@
 							<li class="nav-item">
 								<a class="nav-link" href="/inscription">Inscription</a>
 							</li>
-							<!-- Si connecté -->
+							<!--  -->
+							<!-- Only appear if connected -->
 							{% elseif  app.session.get('user') != NULL %}
 							<li class="nav-item">
 								<a class="nav-link" href="/moncompte">Mon compte</a>
@@ -61,73 +69,65 @@
 							<li class="nav-item">
 								<a class="nav-link" href="/deconnexion">Déconnexion</a>
 							</li>
+							<!--  -->
 							{% endif %}
 						</ul>
 					</div>
 				</nav>
+				<!--  -->
 			</div>
+			<!--  -->
 								
-
+			<!-- Header's second part -->
 			<div id="header_down">
 				<p>BDE CESI</p>
 				<img  class="logo_BDE"
 				src="./assets/images/logo_BDE.png">
 			</div>
+			<!--  -->
 		</header>
+		<!--  -->
 
-		<!--<div id="page-content">-->
-
+		<!-- Main block -->
 		<br /><br /><br />
 
 					{% block body %}{% endblock %}
 
-		<br /><br /><br />
+					<p class="margin-bottom-resp"></p>
 
+		<br /><br /><br /><br/><br/><br/><br/><br/>
+		<!--  -->
 
-		<!-- Liens à utiliser pour pofiner le footer -->
-
-		<!--
-			<div id="contact">
-				<a href="/contact"><button type="button" class="btn btn-primary" id="" aria-pressed="false">Nous Contacter</button></a>
-			</div>
-			<div id="mentions">
-				<a href="/mentions"><button type="button" class="btn btn-primary" id="" aria-pressed="false">Mention Légales</button></a>
-			</div>
-			<div id="reseaux">
-				<div id="facebook">
-					<a href="https://www.facebook.com/BDE-CESI-Lille-2190916054532603/"><button type="button" class="btn btn-primary" aria-pressed="false"><i class="fab fa-facebook-square"></i> Facebook</button></a>
-				</div>
-				<div id="twitter">
-					<a href="https://www.twitter.com/"><button type="button" class="btn btn-primary" aria-pressed="false"><i class="fab fa-twitter-square"></i> Twitter</button></a>
-				</div>
-			</div>
-
-		-->
-
-  		<!--</div>-->
-
+		<!-- Footer -->
 		<footer id="sticky-footer" class="py-4 bg-dark text-white-50">
 			<div class="container text-center">
+				<a href="https://www.facebook.com/BDE-CESI-Lille-2190916054532603/" class="nav-link"><i class="fab fa-facebook-square"></i> Facebook</a>
+				<a href="https://www.twitter.com/" class="nav-link"><i class="fab fa-twitter-square"></i> Twitter</a>
+				<br/>
 				<a href="/mentions" class="nav-link">Mentions Légales</a>
-				<a href="/cgv" class="nav-link">CGV</a>
+				<a href="/cgv" class="nav-link">CGV</a>				
 			</div>
 		</footer>
+		<!--  -->
 
+		<!-- Cookies pop-up -->
 		<div id="cookieConsent">
 			Ce site utilise les cookies.&nbsp;<a href="https://fr.wikipedia.org/wiki/Cookie_(cuisine)" target="_blank">Plus d'informations</a>. <a class="cookieConsentOK">Compris !</a>
 			<div id="closeCookieConsent">x</div>		
 		</div>
-				
+		<!--  -->
+
+		<!-- Script list used for the base -->		
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
- 		<script
-  			src="https://code.jquery.com/jquery-3.4.1.min.js"
-  			integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
-  			crossorigin="anonymous"></script>
+ 		<script	src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
 		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
  		<script src="./assets/vendors/script.js"></script>
+		<!--  -->
 
+		<!-- Symfony's block to implement script for each page -->
 		{% block javascripts %}{% endblock %}
+		<!--  -->
     
 	</body>
 

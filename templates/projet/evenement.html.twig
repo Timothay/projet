@@ -1,19 +1,24 @@
 {% extends 'base.html.twig' %}
 
+{% block stylesheets %}
+<link href="{{ asset('assets/evenement.css') }}" rel="stylesheet">
+{% endblock %}
+
+
 {% block body %}
+
+<!-- Display "add a product" button only if connected with the "membre BDE" role -->
  {% if app.session.get('role') == 2 %}
     <a href="/ajouteracti" class="btn btn-primary add-product">Ajouter un événement</a>
-    <style>
-    .add-product {
-      float: right;
-      margin-top: -50px;
-      margin-right: 20px;
-    }
-    </style>
-  {% endif %}
+{% endif %}
+<!--  -->  
+
+
 {% for activity in activities %}
-{% if activity.masquee %}
+<!-- If activity is bloqued... -->  
+{% if activity.masquee %} 
 {% if app.session.get('role') == 2 or app.session.get('role') == 3 %}
+<!-- Main pattern of card's activities -->  
 <div class="p-5 m-4 border-right bg-light">
     <div class="card">
         <div class = "evenement">
@@ -25,16 +30,22 @@
                 {{activity.description | raw }}
                 <br>
                 <a href="/evenement/{{activity.id}}" class="btn btn-primary m-3">Voir l'événement</a>
+                <!-- ...If connected with the "membre BDE" role -->  
                 {% if app.session.get('role') == 2 %}
                 <a class="btn btn-primary m-3">L'activité a été suspendue par un membre du personnel</a>
+                <!--  -->  
+                <!-- ...If connected with the "personnel CESI" role -->  
                 {% elseif app.session.get('role') == 3 %}
                 <a href="/afficheracti/{{activity.id}}" class="btn btn-primary m-3">Rétablir l'évènement</a>
+                <!--  -->  
                 {% endif %}
             </div> 
         </div>
     </div>    
 </div>
+<!--  -->  
 {% endif %}
+<!-- If activity is public... -->  
 {% else %}
 <div class="p-5 m-4 border-right bg-light">
     <div class="card">
@@ -47,10 +58,14 @@
                 {{activity.description | raw }}
                 <br/>
                 <a href="/evenement/{{activity.id}}" class="btn btn-primary m-3">Voir l'événement</a>
+                <!-- ...If connected with the "membre BDE" role -->  
                 {% if app.session.get('role') == 2 %}
                 <a href="/supprimeracti/{{activity.id}}" class="btn btn-primary m-3">Supprimer l'évènement</a>
+                <!--  --> 
+                <!-- ...If connected with the "personnel CESI" role --> 
                 {% elseif app.session.get('role') == 3 %}
                 <a href="/masqueracti/{{activity.id}}" class="btn btn-primary m-3">Suspendre l'évènement</a>
+                <!--  --> 
                 {% endif %}
             </div>
         </div> 
@@ -58,21 +73,10 @@
 </div>
 
 {% endif %}
-{% endfor %}
+<!--  -->  
+{% endfor %} 
 
 <br/><br/><br/>
-
-<style>
-
-h2 {
-    font-weight: bold;
-}
-
-.event {
-    max-width: 100%;
-}
-
-</style>
 
 
 {% endblock %}

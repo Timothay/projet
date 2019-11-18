@@ -4,14 +4,15 @@
 {% block body %}
 
 {#<div class="example-wrapper">
-   
-
  This friendly message is coming from:
     <ul>
         <li>Your controller at <code><a href="{{ 'D:/wamp64/www/projet/src/Controller/ProjetController.php'|file_link(0) }}">src/Controller/ProjetController.php</a></code></li>
         <li>Your template at <code><a href="{{ 'D:/wamp64/www/projet/templates/projet/index.html.twig'|file_link(0) }}">templates/projet/index.html.twig</a></code></li>
     </ul>
 </div>#}
+
+
+<!-- The welcome message of main page with the e-mail appearing if connected -->
 <div id = "container-fluid">
     {% if  app.session.get('user') != NULL %}
 		<h1>Bienvenue sur la page d'accueil du BDE CESI, {{app.session.get('user')}}.</h1>
@@ -19,4 +20,6 @@
         <h1>Bienvenue sur la page d'accueil du BDE CESI.</h1>
     {% endif %}
 </div>
+<!--  -->
 {% endblock %}
+

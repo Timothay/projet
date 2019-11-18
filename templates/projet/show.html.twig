@@ -1,17 +1,24 @@
 {% extends 'base.html.twig' %}
 
+{% block stylesheets %}
+<link href="{{ asset('assets/show_event.css') }}" rel="stylesheet">
+{% endblock %}
+
 
 {% block body %}
+<!-- If activity is public -->
 {% if not activities.masquee %}
 <div class = "p-5 m-4 border-right bg-light">
     <article>
         <div class = "evenement">
             <h2>{{activities.name}}</h2>
             <div class="metadata"> Crée le {{activities.date | date('d/m/Y')}}</div>
+            <!-- If connected with the "membre BDE" role -->
             {% if app.session.get('role') == 2 %}
                 <a href="/inscritsa/{{activities.id}}" class="btn btn-primary">Récupérer la liste des inscrits</a>
                 </br>
             {% endif %}
+            <!--  -->
             <br/>
             <div class="content border bg-white py-5 px-1">
                 <img class="event" src= "{{activities.image}}" alt="">
@@ -19,33 +26,22 @@
                 {{activities.description | raw }}
             </div>
             <br/>
+            <!-- If connected -->
             {% if app.session.get('role') != NULL  %}
+            <!-- Activity inscription -->
             <a href="/sinscrireacti/{{activities.id}}" class="btn btn-primary">S'inscrire à l'évènement</a>
+            <br/><br/>
             {{form(form)}}
             {% endif %}
+            <!--  -->
         </div>
     </article>
 </div>
+<br/><br/><br/><br/>
+<!-- If activity has been bloqued -->
 {% else %}
 <h1> Cet évènement n'est actuellement pas consultable </h1>
 {% endif %}
-
-
-<style>
-
-h2 {
-    font-weight: bold;
-}
-
-.event {
-    max-width: 100%;
-}
-
-.logo_BDE, .logo {
-    display: none;
-}
-
-</style>
-
+<!--  -->
 
 {% endblock %}

@@ -6,15 +6,16 @@
 
 {% block body %}
 
-
+<!-- If connected with the "membre BDE" role -->
 {% if app.session.get('role') == 2  %}
 <div id="formulaire">
 {{form(form)}}
 </div>
+<!-- If connected or not -->
 {% else %}
 <h1>Vous n'avez pas les permissions.</h1><a href="/boutique"> Retour </a>
 {% endif %}
-
+<!--  -->
 
 
 {% endblock %}

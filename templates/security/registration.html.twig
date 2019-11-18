@@ -6,15 +6,16 @@
 {% endblock %}
 
 {% block body %}
+<!-- Sign up form -->
     <div id="formulaire">
-    <div id="titleauth">
-    <h1> Inscription </h1>
-    <h4> Inscrivez vous avec votre adresse CESI </h4>
-   
+        <div id="titleauth">
+            <h1> Inscription </h1>
+            <h4> Inscrivez vous avec votre adresse CESI </h4>    
+        </div>
+        {{ form_start(form) }}
+        {{ form_end(form) }}
+        <div id="terms"><label for="terms">Lire les <a href="/mentions">Mentions Légales</a></label></div>
+        <a href="/connexion"> J'ai déjà un compte</a>
     </div>
-    {{ form_start(form) }}
-    {{ form_end(form) }}
-     <div id="terms"><label for="terms">Lire les <a href="/mentions">Mentions Légales</a></label></div>
-    <a href="/connexion"> J'ai déjà un compte</a>
-    </div>
+<!--  -->
 {% endblock %}
